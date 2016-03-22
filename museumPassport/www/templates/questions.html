@@ -1,0 +1,14 @@
+<ion-view view-title="Questions" class="Questions-page">
+  <ion-content>
+  This is the questions page...
+    <ul>
+      <li class="question" ng-repeat="question in questions">
+        <div class="question-title" >{{ question.name }}</div>
+        <textarea form="questions-form"></textarea>
+      </li>
+    </ul>
+    <form id="questions-form">
+      <input type="submit"></input>
+    </form>
+  </ion-content>
+</ion-view>

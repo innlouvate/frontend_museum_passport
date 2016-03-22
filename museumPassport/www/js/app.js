@@ -4,7 +4,7 @@
 // 'museumPassport' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('museumPassport', ['ionic'])
+angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,5 +21,35 @@ angular.module('museumPassport', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+  });
+})
+
+.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+  $stateProvider
+  // .state('tab', {
+  //   url: '/tab',
+  //   abstract: true,
+  //   templateUrl: 'templates/tabs.html',
+  //   controller: 'TabsController'
+  // })
+  // .state('tab.questions', {
+  //   url: '/questions',
+  //   views: {
+  //     'tab-questions': {
+  //       templateUrl: 'templates/questions.html',
+  //       controller: 'QuestionController'
+  //     }
+  //   }
+  // })
+  .state('questions', {
+    url: '/',
+    templateUrl: 'templates/questions.html',
+    controller: 'QuestionController'
+  })
+  $urlRouterProvider.otherwise('/')
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false,
+    rewriteLinks: false
   });
 })
