@@ -3,8 +3,8 @@
   This is the questions page...
     <ion-list>
       <ion-item class="question" ng-repeat="question in questions">
-        <div class="question-title" >{{ question.name }}</div>
-        <textarea form="questions-form"></textarea>
+        <div class="question-title" >{{ question.question.description }}</div>
+        <textarea form="questions-form" id="response{{question.question.id}}"></textarea>
       </ion-item>
     </ion-list>
     <form id="questions-form">

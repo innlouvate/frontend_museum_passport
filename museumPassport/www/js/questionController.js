@@ -1,10 +1,13 @@
+(function() {
+angular
+  .module('museumPassport.questions', [])
+  .controller('QuestionController', function($scope, $http) {
 
-    angular
-      .module('museumPassport.questions', ['ionic'])
-      .controller('QuestionController', function($scope, $http) {
-
-      $http.get('js/dummyq.json').success(function(data){
-        $scope.questions = data;
-      });
-
+  $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
+    $scope.questions = data;
   });
+
+});
+})();
+
+// https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions

@@ -13,12 +13,16 @@ describe('hello world', function(){
   it('should display 4 questions', function(){
     var questions = element.all(by.css('.question'));
     expect(questions.count()).toEqual(4);
-    expect(questions.first().getText()).toEqual('Question 1');
+    expect(questions.first().getText()).toEqual('question one');
   });
 
   it('should have tabs', function() {
-    var tab = element.all(by.id('qustion-icon'));
+    var tab = element.all(by.id('question-icon'));
     expect(tab.count()).toEqual(1);
+  });
+
+  it('collects user responses', functions() {
+    
   });
 
 });
