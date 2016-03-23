@@ -30,26 +30,39 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
   //   url: '/tab',
   //   abstract: true,
   //   templateUrl: 'templates/tabs.html',
-  //   controller: 'TabsController'
+  // });
+  //
+  // .state('questions', {
+  //   url: '/',
+  //   templateUrl: 'templates/questions.html',
+  //   controller: 'QuestionController'
   // })
-  // .state('tab.questions', {
-  //   url: '/questions',
-  //   views: {
-  //     'tab-questions': {
-  //       templateUrl: 'templates/questions.html',
-  //       controller: 'QuestionController'
-  //     }
-  //   }
-  // })
+
+  .state('test', {
+    url: '/test',
+    templateUrl: 'templates/test.html',
+    views: {
+      'test': {
+        templateUrl: 'templates/test.html',
+      }
+    }
+  })
+
+
   .state('questions', {
     url: '/',
-    templateUrl: 'templates/questions.html',
-    controller: 'QuestionController'
-  })
-  $urlRouterProvider.otherwise('/')
+    views: {
+      'tab-questions': {
+        templateUrl: 'templates/questions.html',
+        controller: 'QuestionController'
+      }
+    }
+  });
+
+  $urlRouterProvider.otherwise('/');
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false,
     rewriteLinks: false
   });
-})
+});

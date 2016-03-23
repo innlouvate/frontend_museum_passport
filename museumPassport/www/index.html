@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <title>Museum Passport</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -26,6 +26,7 @@
 
   </head>
   <body ng-app="museumPassport">
+
   <ion-pane>
     <ion-header-bar>
       <h1 class="title">Museum Passport</h1>
@@ -36,9 +37,15 @@
     </ion-nav-back-button>
   </ion-nav-bar> -->
 </ion-pane>
-This is the index page
 
+This is the index page
 <ion-nav-view></ion-nav-view>
+
+  <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+    <ion-tab title="Questions" icon-on="ion-help" icon-off="ion-help" href="#/tab/questions">
+      <ion-nav-view name="tab-questions"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
 
   </body>
 </html>
