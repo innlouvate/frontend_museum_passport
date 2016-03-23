@@ -24,32 +24,33 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
-  // .state('tab', {
-  //   url: '/tab',
-  //   abstract: true,
-  //   templateUrl: 'templates/tabs.html',
-  //   controller: 'TabsController'
-  // })
-  // .state('tab.questions', {
-  //   url: '/questions',
-  //   views: {
-  //     'tab-questions': {
-  //       templateUrl: 'templates/questions.html',
-  //       controller: 'QuestionController'
-  //     }
-  //   }
-  // })
-  .state('questions', {
-    url: '/',
-    templateUrl: 'templates/questions.html',
-    controller: 'QuestionController'
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html',
   })
-  $urlRouterProvider.otherwise('/')
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false,
-    rewriteLinks: false
+
+  .state('tab.questions', {
+    url: '/questions',
+    views: {
+      'tab-questions': {
+        templateUrl: 'templates/questions.html',
+        controller: 'QuestionController'
+      }
+    }
+  })
+
+  .state('tab.test', {
+    url: '/test',
+    templateUrl: 'templates/test.html',
+    views: {
+      'tab-test': {
+        templateUrl: 'templates/test.html',
+      }
+    }
   });
-})
+
+  $urlRouterProvider.otherwise('/tab/questions');
+});
