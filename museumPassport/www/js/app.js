@@ -31,35 +31,34 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
   //   abstract: true,
   //   templateUrl: 'templates/tabs.html',
   // });
-  //
+
   // .state('questions', {
-  //   url: '/',
+  //   url: '/questions',
   //   templateUrl: 'templates/questions.html',
   //   controller: 'QuestionController'
-  // })
+  // });
+
+  .state('questions', {
+    url: '/questions',
+    // views: {
+      // 'questions': {
+        templateUrl: 'templates/questions.html',
+        controller: 'QuestionController'
+      // }
+    // }
+  })
 
   .state('test', {
     url: '/test',
     templateUrl: 'templates/test.html',
-    views: {
-      'test': {
+    // views: {
+      // 'test': {
         templateUrl: 'templates/test.html',
-      }
-    }
-  })
-
-
-  .state('questions', {
-    url: '/',
-    views: {
-      'tab-questions': {
-        templateUrl: 'templates/questions.html',
-        controller: 'QuestionController'
-      }
-    }
+      // }
+    // }
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/questions');
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false,
