@@ -32,6 +32,15 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
     templateUrl: 'templates/tabs.html',
   })
 
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/home.html',
+      }
+    }
+  })
+
   .state('tab.questions', {
     url: '/questions',
     views: {
@@ -52,5 +61,5 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/questions');
+  $urlRouterProvider.otherwise('/tab/home');
 });

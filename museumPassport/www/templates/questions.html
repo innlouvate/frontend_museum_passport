@@ -2,13 +2,16 @@
   <ion-content>
   This is the questions page...
     <ion-list>
-      <ion-item class="question" ng-repeat="question in questions">
+      <ion-item class="question" ng-repeat="question in questions track by $index">
         <div class="question-title" >{{ question.question.description }}</div>
-        <textarea form="questions-form" id="response{{question.question.id}}"></textarea>
+        <textarea id="response{{question.question.id}}" ng-model="question.question.response"></textarea>
       </ion-item>
     </ion-list>
-    <form id="questions-form">
-      <input type="submit"></input>
-    </form>
+
+    <a class="tab-item" ng-click="collectResponses(); savedAlert()" ui-sref="tab.home">
+          <i class="icon ion-close"></i>
+          Submit
+    </a>
+
   </ion-content>
 </ion-view>
