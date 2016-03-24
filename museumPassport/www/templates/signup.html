@@ -1,0 +1,22 @@
+<ion-view name="signup-view">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Email</span>
+        <input type="email" placeholder="Email" ng-model="data.email">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Password</span>
+        <input type="password" placeholder="Password" ng-model="data.password">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Password Confirmation</span>
+        <input type="password" placeholder="Password Confirmation" ng-model="data.password_confirmation">
+      </label>
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-calm" ng-click="signup()">Sign-up</button>
+    </div>
+  </ion-content>
+</ion-view>

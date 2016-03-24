@@ -41,6 +41,12 @@ angular.module('museumPassport', [
     templateUrl: 'templates/tabs.html',
   })
 
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signup.html',
+    controller: 'LoginController'
+  })
+
   .state('login', {
     url: '/login',
     // views: {
