@@ -44,13 +44,9 @@ describe('QuestionController', function() {
     ctrl();
     httpBackend.flush();
     httpBackend
-      .expectPOST("https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/1/answers")
+      .expectPOST("https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/1/answers", {})
       .respond('')
     scope.collectResponses();
     httpBackend.flush();
-
-      // .respond({question_id: 1, answer: 'text_dancer'});
-    // scope.recordAnswer(1, 'text_dancer');
-    // expect(dummyData.entry).toEqual('text_dancer');
   });
 });
