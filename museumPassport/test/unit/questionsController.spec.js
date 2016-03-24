@@ -1,6 +1,6 @@
 describe('QuestionController', function() {
 
-  var ctrl, httpBackend, scope;
+  var ctrl, httpBackend, scope, rootScope;
 
   beforeEach(module('museumPassport.questions'));
 
@@ -8,6 +8,7 @@ describe('QuestionController', function() {
       // $controller = _$controller_;
       httpBackend = $httpBackend;
       scope = $rootScope.$new();
+      rootScope = $rootScope;
       httpBackend
         // .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
         .when('GET',"https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
@@ -31,8 +32,9 @@ describe('QuestionController', function() {
 
 
   it('gets the list of test questions and passes it as json', function(){
-    httpBackend
-      .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
+    ctrl();
+    // httpBackend
+    //   .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
     httpBackend.flush();
     expect(scope.questions).toEqual({name: 'Question 1'});
   });

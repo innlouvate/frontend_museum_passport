@@ -1,10 +1,9 @@
 (function() {
 angular
   .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http, $ionicPopup){
+  .controller('QuestionController', function($scope, $http){
 
   // $scope = this;
-
   $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
     $scope.questions = data;
   });
@@ -28,12 +27,12 @@ angular
         console.log(data);
       }
 
-  $scope.savedAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: "Your responses have been saved",
-    //  template: "Where to next?"
-   });
- };
+ //  $scope.savedAlert = function() {
+ //   var alertPopup = $ionicPopup.alert({
+ //     title: "Your responses have been saved",
+ //    //  template: "Where to next?"
+ //   });
+ // };
 
 });
 })();
