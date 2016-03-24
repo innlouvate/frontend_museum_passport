@@ -1,9 +1,10 @@
-// Ionic Starter App
+// Ionic museumPassport App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'museumPassport' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+
+angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,3 +23,43 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.config(function($stateProvider, $urlRouterProvider){
+  $stateProvider
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html',
+  })
+
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/home.html',
+      }
+    }
+  })
+
+  .state('tab.questions', {
+    url: '/questions',
+    views: {
+      'tab-questions': {
+        templateUrl: 'templates/questions.html',
+        controller: 'QuestionController'
+      }
+    }
+  })
+
+  .state('tab.test', {
+    url: '/test',
+    templateUrl: 'templates/test.html',
+    views: {
+      'tab-test': {
+        templateUrl: 'templates/test.html',
+      }
+    }
+  });
+
+  $urlRouterProvider.otherwise('/tab/questions');
+});
