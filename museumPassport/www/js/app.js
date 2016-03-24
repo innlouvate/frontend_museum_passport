@@ -24,12 +24,25 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider){
+.config(function($stateProvider, $urlRouterProvider, $httpProvider){
+
+  $httpProvider.defaults.withCredentials = true;
+
   $stateProvider
   .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html',
+  })
+
+  .state('login', {
+    url: '/login',
+    // views: {
+    //   'tab-login': {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController'
+    //   }
+    // }
   })
 
   .state('tab.questions', {
@@ -52,5 +65,5 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/questions');
+  $urlRouterProvider.otherwise('/login');
 });
