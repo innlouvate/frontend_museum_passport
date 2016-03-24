@@ -15,17 +15,22 @@ angular
       collection.push(item.question.response);
     });
     console.log(collection);
-  }
+  };
 
   $scope.recordAnswer = function(questionID, answer) {
-        var data = JSON.stringify({"entry": answer});
+        var data = $scope.formatJson(answer);
         $http.post('https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/'+questionID+'/answers', data, JSON)
           .success(function ( data, status, header, JSON ) {
           })
           .error(function ( data, status, header, JSON ) {
           });
         console.log(data);
-      }
+      };
+
+  $scope.formatJson = function(answer) {
+    var data = JSON.stringify({"entry": answer});
+    return data;
+  };
 
  //  $scope.savedAlert = function() {
  //   var alertPopup = $ionicPopup.alert({
