@@ -1,5 +1,5 @@
 angular
-  .module('museumPassport')
+  .module('museumPassport.login', [])
   .controller('LoginController', function($scope, $location, UserSession, $ionicPopup, $rootScope) {
 $scope.data = {};
 
