@@ -12,7 +12,7 @@ angular.module('museumPassport', [
   'ngResource'
 ])
 
-.run(function($ionicPlatform, $rootScope, $state, AuthService) {
+.run(function($ionicPlatform, $rootScope, $state) {
 
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -29,19 +29,6 @@ angular.module('museumPassport', [
       StatusBar.styleDefault();
     }
   });
-
-  $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams, fromState, fromStateParams) {
-
-   console.log("Changing state to :");
-   console.log(toState);
-     if(toState.name.indexOf('tabs') !== -1 ) {
-
-       if(!AuthService.getAuthStatus()) {
-             event.preventDefault();
-             $state.go("signin");
-       }
-     }
- });
 })
 
 
@@ -64,12 +51,8 @@ angular.module('museumPassport', [
 
   .state('login', {
     url: '/login',
-    // views: {
-    //   'tab-login': {
-        templateUrl: 'templates/login.html',
-        controller: 'LoginController'
-    //   }
-    // }
+    templateUrl: 'templates/login.html',
+    controller: 'LoginController'
   })
 
   .state('tab.questions', {
