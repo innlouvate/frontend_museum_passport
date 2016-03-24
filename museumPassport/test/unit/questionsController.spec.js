@@ -1,6 +1,7 @@
 describe('QuestionController', function() {
 
-  var ctrl, httpBackend, scope, rootScope;
+  var ctrl, httpBackend, scope, rootScope ;
+  var dummyData = [{"question": {id: 1, name: "Question 1", entry: ""}}]
 
   beforeEach(module('museumPassport.questions'));
 
@@ -12,9 +13,9 @@ describe('QuestionController', function() {
       httpBackend
         // .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
         .when('GET',"https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
-        .respond({name: "Question 1"});
+        .respond(dummyData);
 
-      console.log(httpBackend)
+      // console.log(httpBackend)
       ctrl = function() {
             return $controller('QuestionController', {
                 '$scope': scope
@@ -22,7 +23,7 @@ describe('QuestionController', function() {
         };
 
       // ctrl = $controller('QuestionController', {$scope: scope});
-      console.log(ctrl)
+      // console.log(ctrl)
     }));
 
     afterEach(function() {
@@ -36,7 +37,20 @@ describe('QuestionController', function() {
     // httpBackend
     //   .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
     httpBackend.flush();
-    expect(scope.questions).toEqual({name: 'Question 1'});
+    expect(scope.questions).toEqual(dummyData);
   });
 
+  it('\n\n\nposts the response and saves to the collection array', function(){
+    ctrl();
+    httpBackend.flush();
+    httpBackend
+      .expectPOST("https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/1/answers")
+      .respond('')
+    scope.collectResponses();
+    httpBackend.flush();
+
+      // .respond({question_id: 1, answer: 'text_dancer'});
+    // scope.recordAnswer(1, 'text_dancer');
+    // expect(dummyData.entry).toEqual('text_dancer');
+  });
 });
