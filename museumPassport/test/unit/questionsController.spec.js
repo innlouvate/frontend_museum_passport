@@ -1,29 +1,40 @@
 describe('QuestionController', function() {
 
-  var ctrl, $httpBackend, scope;
+  var ctrl, httpBackend, scope;
 
   beforeEach(module('museumPassport.questions'));
 
-  beforeEach(inject(function($rootScope, _$controller_, _$httpBackend_) {
-      $controller = _$controller_;
-      $httpBackend = _$httpBackend_;
+  beforeEach(inject(function($rootScope, $controller, $httpBackend) {
+      // $controller = _$controller_;
+      httpBackend = $httpBackend;
       scope = $rootScope.$new();
-      console.log($httpBackend)
-      $httpBackend
+      httpBackend
+        // .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
         .when('GET',"https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
         .respond({name: "Question 1"});
 
-      console.log($httpBackend)
+      console.log(httpBackend)
+      ctrl = function() {
+            return $controller('QuestionController', {
+                '$scope': scope
+            });
+        };
 
-      ctrl = $controller('QuestionController', {$scope: scope});
+      // ctrl = $controller('QuestionController', {$scope: scope});
       console.log(ctrl)
     }));
 
+    afterEach(function() {
+        httpBackend.verifyNoOutstandingExpectation();
+        httpBackend.verifyNoOutstandingRequest();
+    });
+
+
   it('gets the list of test questions and passes it as json', function(){
-    $httpBackend
+    httpBackend
       .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
-    $httpBackend.flush();
-    expect(ctrl.questions).toEqual({name: 'Question 1'});
+    httpBackend.flush();
+    expect(scope.questions).toEqual({name: 'Question 1'});
   });
 
 });

@@ -1,7 +1,9 @@
 (function() {
 angular
   .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http, $ionicPopup) {
+  .controller('QuestionController', function($scope, $http, $ionicPopup){
+
+  // $scope = this;
 
   $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
     $scope.questions = data;
@@ -25,10 +27,6 @@ angular
           });
         console.log(data);
       }
-
-  $scope.go = function ( path ) {
-    $location.path( path );
-  };
 
   $scope.savedAlert = function() {
    var alertPopup = $ionicPopup.alert({

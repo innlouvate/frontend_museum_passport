@@ -61,5 +61,5 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/tab/questions');
 });
