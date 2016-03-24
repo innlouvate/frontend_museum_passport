@@ -19,7 +19,18 @@ angular
 
   $scope.recordAnswer = function(questionID, answer) {
         var data = $scope.formatJson(answer);
-        $http.post('https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/'+questionID+'/answers', data, JSON)
+        // $http.post('https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/'+questionID+'/answers', data, JSON)
+
+
+        $http({
+          method: 'POST',
+          url:    'http://localhost:3000/museums/1/exhibits/1/questions/'+questionID+'/answers.json',
+          data:   data,
+          headers: { 'Content-Type': 'application/json'}
+        })
+
+
+        // $http.post('https://localhost:3000/museums/1/exhibits/1/questions/'+questionID+'/answers.json', data, JSON)
           .success(function ( data, status, header, JSON ) {
           })
           .error(function ( data, status, header, JSON ) {
