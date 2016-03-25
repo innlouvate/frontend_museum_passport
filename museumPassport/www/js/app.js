@@ -9,6 +9,7 @@ angular.module('museumPassport', [
   'museumPassport.questions',
   'museumPassport.services',
   'museumPassport.login',
+  'museumPassport.home',
   'ngResource'
 ])
 
@@ -48,7 +49,7 @@ angular.module('museumPassport', [
     templateUrl: 'templates/login.html',
     controller: 'LoginController'
   })
-  
+
   .state('tab', {
     url: '/tab',
     abstract: true,
@@ -60,8 +61,10 @@ angular.module('museumPassport', [
     views: {
       'tab-home': {
         templateUrl: 'templates/home.html',
+        controller: 'HomeController'
       }
     }
+  })
 
   .state('tab.questions', {
     url: '/questions',

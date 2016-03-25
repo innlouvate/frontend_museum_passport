@@ -9,7 +9,7 @@ var user_registration = new UserRegistration({ user: $scope.data });
     function(data){
       window.localStorage['userId'] = data.id;
       window.localStorage['userName'] = data.name;
-      $location.path('/tab/questions');
+      $location.path('/tab/home');
     },
     function(err){
       var error = err["data"]["error"] || err.data.join('. ')
@@ -27,7 +27,7 @@ $scope.login = function() {
     function(data){
       window.localStorage['userId'] = data.id;
       window.localStorage['userName'] = data.name;
-      $location.path('/tab/questions');
+      $location.path('/tab/home');
     },
     function(err){
       var error = err["data"]["error"] || err.data.join('. ')
