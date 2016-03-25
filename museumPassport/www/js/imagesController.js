@@ -5,7 +5,7 @@ angular
 
   $ionicPlatform.ready(function() {
     $scope.images = FileService.images();
-    $scope.$apply();
+    $scope.$evalAsync();
   });
 
   $scope.urlForImage = function(imageName) {
@@ -30,7 +30,7 @@ angular
   $scope.addImage = function(type) {
     $scope.hideSheet();
     ImageService.handleMediaDialog(type).then(function() {
-      $scope.$apply();
+      $scope.$evalAsync();
     });
   }
 

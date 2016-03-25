@@ -81,8 +81,8 @@ angular.module('museumPassport', [
     url: '/photos',
     views: {
       'tab-photos': {
-        templateUrl: 'templates/photos.html'
-        // controller: 'ImageController'
+        templateUrl: 'templates/photos.html',
+        controller: 'ImageController'
       }
     }
   })
