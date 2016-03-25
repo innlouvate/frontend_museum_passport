@@ -9,6 +9,7 @@ angular.module('museumPassport', [
   'museumPassport.questions',
   'museumPassport.images',
   'museumPassport.services',
+  'museumPassport.imageServices',
   'museumPassport.login',
   'ngResource',
   'ngCordova'
@@ -75,7 +76,7 @@ angular.module('museumPassport', [
       }
     }
   })
-  
+
   .state('tab.photos', {
     url: '/photos',
     views: {
