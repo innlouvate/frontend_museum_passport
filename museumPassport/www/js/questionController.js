@@ -6,8 +6,5 @@ angular
   $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
     $scope.questions = data;
   });
-
 });
 })();
-
-// https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions
