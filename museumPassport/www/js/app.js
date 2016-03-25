@@ -9,7 +9,8 @@ angular.module('museumPassport', [
   'museumPassport.questions',
   'museumPassport.services',
   'museumPassport.login',
-  'ngResource'
+  'ngResource',
+  'ngCordova'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
@@ -48,40 +49,50 @@ angular.module('museumPassport', [
     templateUrl: 'templates/login.html',
     controller: 'LoginController'
   })
-  
+
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html',
+    templateUrl: 'templates/tabs.html'
   })
 
   .state('tab.home', {
     url: '/home',
     views: {
       'tab-home': {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/home.html'
       }
     }
+  })
 
   .state('tab.questions', {
     url: '/questions',
     views: {
       'tab-questions': {
         templateUrl: 'templates/questions.html',
-        controller: 'QuestionController',
+        controller: 'QuestionController'
       }
     }
   })
 
   .state('tab.test', {
     url: '/test',
-    templateUrl: 'templates/test.html',
     views: {
       'tab-test': {
-        templateUrl: 'templates/test.html',
+        templateUrl: 'templates/test.html'
+      }
+    }
+  })
+
+  .state('tab.photos', {
+    url: '/photos',
+    views: {
+      'tab-photos': {
+        templateUrl: 'templates/photos.html'
+        // controller: 'QuestionController'
       }
     }
   });
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('tab/home');
 });
