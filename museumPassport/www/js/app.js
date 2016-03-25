@@ -37,12 +37,6 @@ angular.module('museumPassport', [
   $httpProvider.defaults.withCredentials = true;
 
   $stateProvider
-  .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html',
-  })
-
   .state('signup', {
     url: '/signup',
     templateUrl: 'templates/signup.html',
@@ -54,6 +48,20 @@ angular.module('museumPassport', [
     templateUrl: 'templates/login.html',
     controller: 'LoginController'
   })
+  
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html',
+  })
+
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/home.html',
+      }
+    }
 
   .state('tab.questions', {
     url: '/questions',

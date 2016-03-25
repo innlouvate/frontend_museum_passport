@@ -1,29 +1,46 @@
 describe('QuestionController', function() {
 
-  var ctrl, $httpBackend, scope;
+  var ctrl, httpBackend, scope, rootScope ;
+  var dummyData = [{"question": {id: 1, name: "Question 1", entry: ""}}]
 
   beforeEach(module('museumPassport.questions'));
 
-  beforeEach(inject(function($rootScope, _$controller_, _$httpBackend_) {
-      $controller = _$controller_;
-      $httpBackend = _$httpBackend_;
+  beforeEach(inject(function($rootScope, $controller, $httpBackend) {
+      httpBackend = $httpBackend;
       scope = $rootScope.$new();
-      console.log($httpBackend)
-      $httpBackend
+      rootScope = $rootScope;
+      httpBackend
         .when('GET',"https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
-        .respond({name: "Question 1"});
+        .respond(dummyData);
 
-      console.log($httpBackend)
-
-      ctrl = $controller('QuestionController', {$scope: scope});
-      console.log(ctrl)
+      ctrl = function() {
+            return $controller('QuestionController', {
+                '$scope': scope
+            });
+        };
     }));
 
+    afterEach(function() {
+        httpBackend.verifyNoOutstandingExpectation();
+        httpBackend.verifyNoOutstandingRequest();
+    });
+
+
   it('gets the list of test questions and passes it as json', function(){
-    $httpBackend
-      .expectGET("https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions")
-    $httpBackend.flush();
-    expect(ctrl.questions).toEqual({name: 'Question 1'});
+    ctrl();
+    httpBackend.flush();
+    expect(scope.questions).toEqual(dummyData);
   });
 
+  it('\n\n\nposts the response and saves to the collection array', function(){
+    ctrl();
+    spyOn(scope, 'formatJson');
+    scope.formatJson.and.returnValue('cat');
+    httpBackend.flush();
+    httpBackend
+      .expectPOST("https://localhost:3000/museums/1/exhibits/1/questions/1/answers")
+      .respond('');
+    scope.collectResponses();
+    httpBackend.flush();
+  });
 });
