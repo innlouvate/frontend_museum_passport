@@ -2,7 +2,7 @@ angular
   .module('museumPassport.home', [])
   .controller('HomeController', function($scope, $location){
 
-    $scope.goToQuestions = function() {
-      $location.path('/tab/questions');
+    $scope.goToExhibits = function() {
+      $location.path('/tab/exhibits');
     };
 });
