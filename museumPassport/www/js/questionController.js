@@ -3,7 +3,6 @@ angular
   .module('museumPassport.questions', [])
   .controller('QuestionController', function($scope, $http){
 
-  // $scope = this;
   $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
     $scope.questions = data;
   });
@@ -19,8 +18,6 @@ angular
 
   $scope.recordAnswer = function(questionID, answer) {
         var data = $scope.formatJson(answer);
-        // $http.post('https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/'+questionID+'/answers', data, JSON)
-
 
         $http({
           method: 'POST',
@@ -28,9 +25,6 @@ angular
           data:   data,
           headers: { 'Content-Type': 'application/json'}
         })
-
-
-        // $http.post('https://localhost:3000/museums/1/exhibits/1/questions/'+questionID+'/answers.json', data, JSON)
           .success(function ( data, status, header, JSON ) {
           })
           .error(function ( data, status, header, JSON ) {

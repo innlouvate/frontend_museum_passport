@@ -18,7 +18,6 @@ describe('QuestionController', function() {
                 '$scope': scope
             });
         };
-
     }));
 
     afterEach(function() {
@@ -39,7 +38,7 @@ describe('QuestionController', function() {
     scope.formatJson.and.returnValue('cat');
     httpBackend.flush();
     httpBackend
-      .expectPOST("https://museum-passport-backend.herokuapp.com/museums/1/exhibits/1/questions/1/answers")
+      .expectPOST("https://localhost:3000/museums/1/exhibits/1/questions/1/answers")
       .respond('');
     scope.collectResponses();
     httpBackend.flush();
