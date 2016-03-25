@@ -9,5 +9,3 @@ angular
 
 });
 })();
-
-// https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions
