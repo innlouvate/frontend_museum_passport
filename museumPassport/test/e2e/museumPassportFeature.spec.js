@@ -14,14 +14,16 @@ describe('museumPassport', function(){
     element(by.id('email')).sendKeys("example@example.com");
     element(by.id('password')).sendKeys("hello123");
     element(by.buttonText('Login')).click();
-    expect(element(by.id('museum-button')).isPresent()).toBeTruthy();
+    expect(browser.getCurrentUrl()).toContain('home');
+    expect(element.all(by.repeater('museum in museums')).count()).toEqual(4);
+    expect(element(by.buttonText('Museum 1')).isPresent()).toBeTruthy();
   });
 
   it('should direct to the exhibits page when clicking on museum button', function(){
     element(by.id('email')).sendKeys("example@example.com");
     element(by.id('password')).sendKeys("hello123");
     element(by.buttonText('Login')).click();
-    element(by.buttonText('Science Museum')).click();
+    element(by.buttonText('Museum 1')).click();
     expect(browser.getCurrentUrl()).toContain('exhibits');
     expect(element.all(by.repeater('exhibit in exhibits')).count()).toEqual(4);
     expect(element(by.buttonText('Exhibit 1')).isPresent()).toBeTruthy();
@@ -31,7 +33,7 @@ describe('museumPassport', function(){
     element(by.id('email')).sendKeys("example@example.com");
     element(by.id('password')).sendKeys("hello123");
     element(by.buttonText('Login')).click();
-    element(by.buttonText('Science Museum')).click();
+    element(by.buttonText('Museum 1')).click();
     element(by.buttonText('Exhibit 1')).click();
     expect(browser.getCurrentUrl()).toContain('questions');
   });
@@ -40,7 +42,7 @@ describe('museumPassport', function(){
     element(by.id('email')).sendKeys("example@example.com");
     element(by.id('password')).sendKeys("hello123");
     element(by.buttonText('Login')).click();
-    element(by.buttonText('Science Museum')).click();
+    element(by.buttonText('Museum 1')).click();
     element(by.buttonText('Exhibit 1')).click();
     var questions = element.all(by.css('.question'));
     expect(questions.count()).toEqual(4);

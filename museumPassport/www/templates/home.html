@@ -1,8 +1,12 @@
 <ion-view view-title="Home" class="Home-page">
   <ion-content>
   You are on the homepage
-    <button id="museum-button" class="button button-large" ng-click="goToExhibits()">
-     Science Museum
-    </button>
+  <ion-list>
+    <ion-item class="museum" ng-repeat="museum in museums track by $index">
+      <button id="museum-button" class="button button-large" ng-click="goToExhibits()">
+        {{ museum.name }}
+      </button>
+    </ion-item>
+  </ion-list>
   </ion-content>
 </ion-view>
