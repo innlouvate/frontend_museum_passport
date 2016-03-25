@@ -1,7 +1,7 @@
 (function() {
 angular
   .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http){
+  .controller('QuestionController', function($scope, $http, $cordovaDevice, $cordovaFile, $ionicPlatform, $ionicActionSheet, ImageService, FileService){
 
   $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
     $scope.questions = data;
@@ -44,9 +44,36 @@ angular
  //   });
  // };
 
- $scope.addMedia = function() {
+ $ionicPlatform.ready(function() {
+   $scope.images = FileService.images();
+   $scope.$evalAsync();
+ });
 
- };
+ $scope.urlForImage = function(imageName) {
+   var trueOrigin = cordova.file.dataDirectory + imageName;
+   return trueOrigin;
+ }
+
+ $scope.addMedia = function() {
+   $scope.hideSheet = $ionicActionSheet.show({
+     buttons: [
+       { text: 'Take photo' },
+       { text: 'Photo from library' }
+     ],
+     titleText: 'Add images',
+     cancelText: 'Cancel',
+     buttonClicked: function(index) {
+       $scope.addImage(index);
+     }
+   });
+ }
+
+ $scope.addImage = function(type) {
+   $scope.hideSheet();
+   ImageService.handleMediaDialog(type).then(function() {
+     $scope.$evalAsync();
+   });
+ }
 
 });
 })();

@@ -32,7 +32,7 @@ describe('QuestionController', function() {
     expect(scope.questions).toEqual(dummyData);
   });
 
-  it('\n\n\nposts the response and saves to the collection array', function(){
+  it('posts the response and saves to the collection array', function(){
     ctrl();
     spyOn(scope, 'formatJson');
     scope.formatJson.and.returnValue('cat');
