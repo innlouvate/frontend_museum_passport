@@ -38,7 +38,7 @@ describe('QuestionController', function() {
     scope.formatJson.and.returnValue('cat');
     httpBackend.flush();
     httpBackend
-      .expectPOST("https://localhost:3000/museums/1/exhibits/1/questions/1/answers")
+      .expectPOST("http://localhost:3000/museums/1/exhibits/1/questions/1/answers.json")
       .respond('');
     scope.collectResponses();
     httpBackend.flush();
