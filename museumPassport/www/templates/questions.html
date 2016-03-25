@@ -4,7 +4,10 @@
     <ion-list>
       <ion-item class="question" ng-repeat="question in questions track by $index">
         <div class="question-title" >{{ question.question.description }}</div>
-        <textarea id="response{{question.question.id}}" ng-model="question.question.response"></textarea>
+        <textarea class="text-answer" id="response{{question.question.id}}" ng-model="question.question.response"></textarea>
+        <button class="button button-full button-energized upload-button" ng-click="addMedia()">
+          Add image
+        </button>
       </ion-item>
     </ion-list>
 
