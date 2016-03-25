@@ -4,9 +4,16 @@
 // 'museumPassport' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
+angular.module('museumPassport', [
+  'ionic',
+  'museumPassport.questions',
+  'museumPassport.services',
+  'museumPassport.login',
+  'ngResource'
+])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state) {
+
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -24,8 +31,24 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider){
+
+.config(function($stateProvider, $urlRouterProvider, $httpProvider){
+
+  $httpProvider.defaults.withCredentials = true;
+
   $stateProvider
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signup.html',
+    controller: 'LoginController'
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginController'
+  })
+  
   .state('tab', {
     url: '/tab',
     abstract: true,
@@ -39,14 +62,13 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
         templateUrl: 'templates/home.html',
       }
     }
-  })
 
   .state('tab.questions', {
     url: '/questions',
     views: {
       'tab-questions': {
         templateUrl: 'templates/questions.html',
-        controller: 'QuestionController'
+        controller: 'QuestionController',
       }
     }
   })
@@ -61,5 +83,5 @@ angular.module('museumPassport', ['ionic', 'museumPassport.questions'])
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/questions');
+  $urlRouterProvider.otherwise('/login');
 });
