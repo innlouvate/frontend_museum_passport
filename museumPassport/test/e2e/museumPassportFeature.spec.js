@@ -23,6 +23,8 @@ describe('museumPassport', function(){
     element(by.buttonText('Login')).click();
     element(by.buttonText('Science Museum')).click();
     expect(browser.getCurrentUrl()).toContain('exhibits');
+    expect(element.all(by.repeater('exhibit in exhibits')).count()).toEqual(4);
+    expect(element(by.buttonText('Exhibit 1')).isPresent()).toBeTruthy();
   });
 
   it('should direct to the questions page when clicking on exhibits button', function(){
@@ -30,7 +32,7 @@ describe('museumPassport', function(){
     element(by.id('password')).sendKeys("hello123");
     element(by.buttonText('Login')).click();
     element(by.buttonText('Science Museum')).click();
-    element(by.buttonText('First exhibit')).click();
+    element(by.buttonText('Exhibit 1')).click();
     expect(browser.getCurrentUrl()).toContain('questions');
   });
 
@@ -39,7 +41,7 @@ describe('museumPassport', function(){
     element(by.id('password')).sendKeys("hello123");
     element(by.buttonText('Login')).click();
     element(by.buttonText('Science Museum')).click();
-    element(by.buttonText('First exhibit')).click();
+    element(by.buttonText('Exhibit 1')).click();
     var questions = element.all(by.css('.question'));
     expect(questions.count()).toEqual(4);
     expect(questions.first().getText()).toEqual('question one');
@@ -52,9 +54,5 @@ describe('museumPassport', function(){
     var tab = element.all(by.id('question-icon'));
     expect(tab.count()).toEqual(1);
   });
-
-  // it('collects user responses', functions() {
-  //
-  // });
 
 });
