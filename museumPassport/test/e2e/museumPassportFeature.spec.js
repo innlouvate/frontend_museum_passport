@@ -33,4 +33,9 @@ describe('hello world', function(){
     expect(text_boxes.count()).toEqual(4);
   })
 
+  it('should display photo you upload', function(){
+    var uploads = element.all(by.css('.upload-button'))
+    uploads.first().click()
+  })
+
 });
