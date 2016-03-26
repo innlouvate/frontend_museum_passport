@@ -48,7 +48,7 @@ angular.module('museumPassport', [
     templateUrl: 'templates/login.html',
     controller: 'LoginController'
   })
-  
+
   .state('tab', {
     url: '/tab',
     abstract: true,
@@ -62,7 +62,7 @@ angular.module('museumPassport', [
         templateUrl: 'templates/home.html',
       }
     }
-
+  })
   .state('tab.questions', {
     url: '/questions',
     views: {
@@ -81,7 +81,7 @@ angular.module('museumPassport', [
         templateUrl: 'templates/test.html',
       }
     }
-  });
+  })
 
   $urlRouterProvider.otherwise('/login');
 });
