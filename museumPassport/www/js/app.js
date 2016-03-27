@@ -9,6 +9,8 @@ angular.module('museumPassport', [
   'museumPassport.questions',
   'museumPassport.services',
   'museumPassport.login',
+  'museumPassport.home',
+  'museumPassport.exhibits',
   'ngResource'
 ])
 
@@ -60,9 +62,22 @@ angular.module('museumPassport', [
     views: {
       'tab-home': {
         templateUrl: 'templates/home.html',
+        controller: 'HomeController'
       }
     }
   })
+
+  .state('tab.exhibits', {
+    url: '/exhibits',
+    templateUrl: 'templates/exhibits.html',
+    views: {
+      'tab-exhibits': {
+        templateUrl: 'templates/exhibits.html',
+        controller: 'ExhibitsController'
+      }
+    }
+  })
+
   .state('tab.questions', {
     url: '/questions',
     views: {
@@ -71,17 +86,7 @@ angular.module('museumPassport', [
         controller: 'QuestionController',
       }
     }
-  })
-
-  .state('tab.test', {
-    url: '/test',
-    templateUrl: 'templates/test.html',
-    views: {
-      'tab-test': {
-        templateUrl: 'templates/test.html',
-      }
-    }
-  })
+  });
 
   $urlRouterProvider.otherwise('/login');
 });

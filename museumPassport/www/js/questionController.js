@@ -10,7 +10,7 @@ angular
   $scope.collectResponses = function() {
     var collection = [];
     $scope.questions.forEach(function(item) {
-      $scope.recordAnswer(item.question.id, item.question.response)
+      $scope.recordAnswer(item.question.id, item.question.response);
       collection.push(item.question.response);
     });
     console.log(collection);
