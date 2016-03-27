@@ -7,7 +7,7 @@
 angular.module('museumPassport', [
   'ionic',
   'museumPassport.questions',
-  'museumPassport.images',
+  // 'museumPassport.images',
   'museumPassport.services',
   'museumPassport.imageServices',
   'museumPassport.login',
@@ -33,7 +33,6 @@ angular.module('museumPassport', [
     }
   });
 })
-
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
@@ -81,8 +80,8 @@ angular.module('museumPassport', [
     url: '/photos',
     views: {
       'tab-photos': {
-        templateUrl: 'templates/photos.html',
-        controller: 'ImageController'
+        templateUrl: 'templates/photos.html'
+        // controller: 'ImageController'
       }
     }
   })
@@ -106,5 +105,5 @@ angular.module('museumPassport', [
   //   }
   // });
 
-  $urlRouterProvider.otherwise('tab/home');
+  $urlRouterProvider.otherwise('signup');
 });

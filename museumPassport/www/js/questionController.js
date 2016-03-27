@@ -1,7 +1,7 @@
 (function() {
 angular
-  .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http, $cordovaDevice, $cordovaFile, $ionicPlatform, $ionicActionSheet, ImageService, FileService){
+  .module('museumPassport.questions', ['ionic'])
+  .controller('QuestionController', function($scope, $http, $cordovaFile, $ionicPlatform, $ionicActionSheet, ImageService, FileService){
 
   $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
     $scope.questions = data;
@@ -33,7 +33,7 @@ angular
       };
 
   $scope.formatJson = function(answer) {
-    var data = JSON.stringify({"entry": answer});
+    var data = JSON.stringify({"entry": answer, "user_id": window.localStorage['userId']});
     return data;
   };
 
