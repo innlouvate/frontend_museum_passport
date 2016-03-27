@@ -80,6 +80,7 @@ angular.module('museumPassport', [
 
   .state('tab.questions', {
     url: '/questions',
+    cache: false,
     views: {
       'tab-questions': {
         templateUrl: 'templates/questions.html',
