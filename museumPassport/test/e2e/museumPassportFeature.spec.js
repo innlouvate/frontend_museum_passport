@@ -21,8 +21,13 @@ describe('hello world', function(){
     expect(tab.count()).toEqual(1);
   });
 
-  it('collects user responses', functions() {
-    
+  it('should display a sign-out icon', function() {
+    element(by.id('email')).sendKeys("example@example.com");
+    element(by.id('password')).sendKeys("hello123");
+    element(by.buttonText('Login')).click();
+    expect(browser.getCurrentUrl()).toContain('home');
+    expect(element.all(by.repeater('museum in museums')).count()).toEqual(4);
+    expect(element(by.buttonText('Museum 1')).isPresent()).toBeTruthy();
   });
 
 });
