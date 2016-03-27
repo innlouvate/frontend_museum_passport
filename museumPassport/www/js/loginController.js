@@ -19,7 +19,7 @@ var user_registration = new UserRegistration({ user: $scope.data });
       });
     }
   );
-}
+};
 
 $scope.login = function() {
   var user_session = new UserSession({ user: $scope.data });
@@ -30,12 +30,19 @@ $scope.login = function() {
       $location.path('/tab/home');
     },
     function(err){
-      var error = err["data"]["error"] || err.data.join('. ')
+      var error = err["data"]["error"] || err.data.join('. ');
       var confirmPopup = $ionicPopup.alert({
         title: 'An error occured',
         template: error
       });
     }
   );
-}
-})
+};
+
+$scope.logout = function(data) {
+      window.localStorage.removeItem['userId'] = data.id;
+      window.localStorage.removeItem['userName'] = data.name;
+      $location.path('login');
+    };
+
+});
