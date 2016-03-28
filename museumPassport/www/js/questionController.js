@@ -4,9 +4,11 @@ angular
   .controller('QuestionController', function($scope, $http){
 
   var addressOne = 'https://museum-passport-backend.herokuapp.com/museums/';
-  var museumId = window.localStorage['museumId'];
+  var museumId = localStorage['museumId'];
+  console.log(museumId)
   var addressTwo = '/exhibits/';
-  var exhibitId = window.localStorage['exhibitId'];
+  var exhibitId = localStorage['exhibitId'];
+  console.log(exhibitId)
   var addressThree = '/questions';
 
   $http.get(addressOne + museumId + addressTwo + exhibitId + addressThree).success(function(data){
