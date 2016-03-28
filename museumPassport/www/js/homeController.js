@@ -6,7 +6,7 @@ angular
     //   $scope.questions = data;
     // });
 
-    $http.get('js/museums.json').success(function(data){
+    $http.get("https://museum-passport-backend.herokuapp.com/museums").success(function(data){
       $scope.museums = data;
     });
 

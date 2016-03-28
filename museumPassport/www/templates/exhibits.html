@@ -3,8 +3,8 @@
     Exhibits page
     <ion-list>
       <ion-item class="exhibit" ng-repeat="exhibit in exhibits track by $index">
-        <button id="exhibit-button" class="button button-large" ng-click="selectExhibit(exhibit.id)">
-          {{ exhibit.name }}
+        <button id="exhibit-button" class="button button-large" ng-click="selectExhibit(exhibit.exhibit.id)">
+          {{ exhibit.exhibit.name }}
         </button>
       </ion-item>
     </ion-list>

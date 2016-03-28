@@ -6,7 +6,12 @@ angular
     //   $scope.questions = data;
     // });
 
-    $http.get('js/exhibits.json').success(function(data){
+    var addressOne = 'https://museum-passport-backend.herokuapp.com/museums/';
+    var museumId = window.localStorage['museumId'];
+    console.log(museumId)
+    var addressTwo = '/exhibits';
+
+    $http.get("https://museum-passport-backend.herokuapp.com/museums/1/exhibits").success(function(data){
       $scope.exhibits = data;
     });
 
