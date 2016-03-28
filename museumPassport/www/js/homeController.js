@@ -18,7 +18,7 @@ angular
     },
 
     $scope.storeMuseumId = function(museumId){
-      window.localStorage['museum'] = museumId;
+      window.localStorage['museumId'] = museumId;
     },
 
     $scope.goToExhibits = function() {
