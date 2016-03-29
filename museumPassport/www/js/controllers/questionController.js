@@ -1,7 +1,7 @@
 (function() {
 angular
   .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http){
+  .controller('QuestionController', function($scope, $http, CreateAnswer){
 
 
   $http.get('http://localhost:3000/exhibits/' + localStorage['exhibitId'] + '/questions').success(function(data){
@@ -22,7 +22,8 @@ angular
     if($scope.status() === 'new') {
       $scope.questions.forEach(function(item) {
         var data = $scope.formatJson(item.question.answer);
-        $scope.recordAnswer(item.question.id, data);
+        var answer = new CreateAnswer()
+        answer.create(data, item.question.id);
       });
     } else {
       $scope.questions.forEach(function(item) {
@@ -31,20 +32,35 @@ angular
     }
   };
 
-  $scope.recordAnswer = function(questionID, answer) {
-
-        $http({
-          method: 'POST',
-          url:    'http://localhost:3000/museums/1/exhibits/1/questions/'+questionID+'/answers.json',
-          data:   data,
-          headers: { 'Content-Type': 'application/json'}
-        })
-          .success(function ( data, status, header, JSON ) {
-          })
-          .error(function ( data, status, header, JSON ) {
-          });
-        console.log(data);
-      };
+  // var user_registration = new UserRegistration({ user: $scope.data });
+  //   user_registration.$save(
+  //     function(data){
+  //       window.localStorage['userId'] = data.id;
+  //       window.localStorage['userName'] = data.name;
+  //       $location.path('/tab/home');
+  //     },
+  //     function(err){
+  //       var error = err["data"]["error"] || err.data.join('. ')
+  //       var confirmPopup = $ionicPopup.alert({
+  //         title: 'An error occured',
+  //         template: error
+  //       });
+  //     }
+  //   );
+  // $scope.recordAnswer = function(questionID, answer) {
+  //
+  //       $http({
+  //         method: 'POST',
+  //         url:    'http://localhost:3000/museums/1/exhibits/1/questions/'+questionID+'/answers.json',
+  //         data:   data,
+  //         headers: { 'Content-Type': 'application/json'}
+  //       })
+  //         .success(function ( data, status, header, JSON ) {
+  //         })
+  //         .error(function ( data, status, header, JSON ) {
+  //         });
+  //       console.log(data);
+  //     };
 
   $scope.formatJson = function(answer) {
     var data = JSON.stringify({"entry": answer, "user_id": window.localStorage['userId']});
