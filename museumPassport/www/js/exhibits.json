@@ -1,6 +1,6 @@
 [
-    {"name": "Exhibit 1"},
-    {"name": "Exhibit 2"},
-    {"name": "Exhibit 3"},
-    {"name": "Exhibit 4"}
+    {"name": "Exhibit 1", "id": "1"},
+    {"name": "Exhibit 2", "id": "2"},
+    {"name": "Exhibit 3", "id": "3"},
+    {"name": "Exhibit 4", "id": "4"}
 ]
