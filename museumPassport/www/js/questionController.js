@@ -3,7 +3,15 @@ angular
   .module('museumPassport.questions', [])
   .controller('QuestionController', function($scope, $http){
 
-  $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
+  var addressOne = 'https://museum-passport-backend.herokuapp.com/museums/';
+  var museumId = localStorage['museumId'];
+  console.log(museumId)
+  var addressTwo = '/exhibits/';
+  var exhibitId = localStorage['exhibitId'];
+  console.log(exhibitId)
+  var addressThree = '/questions';
+
+  $http.get(addressOne + museumId + addressTwo + exhibitId + addressThree).success(function(data){
     $scope.questions = data;
   });
 
