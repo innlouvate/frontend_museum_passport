@@ -70,7 +70,7 @@ angular
           $cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName)
             .then(function(info) {
               FileService.storeImage(newName);
-              resolve();
+              resolve();//callback sending url to db
             }, function(e) {
               reject();
             });
