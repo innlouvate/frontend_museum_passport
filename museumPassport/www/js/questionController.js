@@ -5,33 +5,20 @@ angular
 
   $http.get('http://localhost:3000/museums/1/exhibits/1/questions').success(function(data){
     $scope.questions = data;
-    console.log(data)
-    console.log($scope.questions[0].question.answer)
-    if($scope.questions[0].question.answer) {
-      $scope.status = 'return';
-    } else {
-      $scope.status = 'new'
-    }
-    console.log($scope.status)
+    $scope.status();
   });
 
-  // $scope.status = function() {
-  //   console.log($scope.questions)
-  // }
-  // $scope.status()
-
-  // $scope.collectResponses = function() {
-  //   var collection = [];
-  //   $scope.questions.forEach(function(item) {
-  //     $scope.recordAnswer(item.question.id, item.question.answer);
-  //     collection.push(item.question.answer);
-  //   });
-  //   console.log(collection);
-  // };
+  $scope.status = function() {
+    if($scope.questions[0].question.answer) {
+      return 'edit';
+    } else {
+      return 'new'
+    }
+  }
 
   $scope.collectResponses = function() {
     var collection = [];
-    if($scope.status === 'new') {
+    if($scope.status() === 'new') {
       $scope.questions.forEach(function(item) {
         $scope.recordAnswer(item.question.id, item.question.answer);
         collection.push(item.question.answer);
