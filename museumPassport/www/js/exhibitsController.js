@@ -21,8 +21,6 @@ angular
 
     $scope.storeExhibitId = function(exhibitId){
       window.localStorage['exhibitId'] = exhibitId;
-      console.log(window.localStorage['exhibitId'])
-      console.log(exhibitId)
     },
 
     $scope.goToQuestions = function() {
