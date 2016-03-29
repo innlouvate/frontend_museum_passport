@@ -1,0 +1,12 @@
+<ion-view view-title="Exhibits" class="Exhibits-page">
+  <ion-content>
+    Exhibits page
+    <ion-list>
+      <ion-item class="exhibit" ng-repeat="exhibit in exhibits track by $index">
+        <button id="exhibit-button" class="button button-large" ng-click="selectExhibit(exhibit.exhibit.id)">
+          {{ exhibit.exhibit.name }}
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -7,12 +7,16 @@
 angular.module('museumPassport', [
   'ionic',
   'museumPassport.questions',
-  // 'museumPassport.images',
+  'museumPassport.images',
+  'museumPassport.answers',
+  'museumPassport.editAnswers',
   'museumPassport.services',
   'museumPassport.imageServices',
   'museumPassport.login',
   'ngResource',
-  'ngCordova'
+  'ngCordova',
+  'museumPassport.home',
+  'museumPassport.exhibits'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
@@ -61,17 +65,19 @@ angular.module('museumPassport', [
     url: '/home',
     views: {
       'tab-home': {
-        templateUrl: 'templates/home.html'
+        templateUrl: 'templates/home.html',
+        controller: 'HomeController'
       }
     }
   })
 
-  .state('tab.questions', {
-    url: '/questions',
+  .state('tab.exhibits', {
+    url: '/exhibits',
+    templateUrl: 'templates/exhibits.html',
     views: {
-      'tab-questions': {
-        templateUrl: 'templates/questions.html',
-        controller: 'QuestionController'
+      'tab-exhibits': {
+        templateUrl: 'templates/exhibits.html',
+        controller: 'ExhibitsController'
       }
     }
   })
@@ -86,11 +92,13 @@ angular.module('museumPassport', [
     }
   })
 
-  .state('tab.test', {
-    url: '/test',
+  .state('tab.questions', {
+    url: '/questions',
+    cache: false,
     views: {
-      'tab-test': {
-        templateUrl: 'templates/test.html'
+      'tab-questions': {
+        templateUrl: 'templates/questions.html',
+        controller: 'QuestionController'
       }
     }
   });
