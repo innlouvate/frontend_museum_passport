@@ -9730,3 +9730,7 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.scroll-bg, .museum, .exhibit {
+  background: url("http://i.imgur.com/hCWzjaf.jpg?1") no-repeat center center fixed;
+  background-size: cover; }

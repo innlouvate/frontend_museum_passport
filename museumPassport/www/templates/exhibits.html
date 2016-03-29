@@ -1,6 +1,6 @@
 <ion-view view-title="Exhibits" class="Exhibits-page">
-  <ion-content>
-    Exhibits page
+  <ion-content class="padding scroll-bg">
+    <h3>Which exhibit will you see?</h3>
     <ion-list>
       <ion-item class="exhibit" ng-repeat="exhibit in exhibits track by $index">
         <button id="exhibit-button" class="button button-large" ng-click="selectExhibit(exhibit.exhibit.id)">

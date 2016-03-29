@@ -17,6 +17,12 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
+$big-bg:       'http://i.imgur.com/hCWzjaf.jpg?1';
+// $button-stamp: 'http://i.imgur.com/9QI4UH4.png?1';
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+.scroll-bg, .museum, .exhibit {
+  background: url($big-bg) no-repeat center center fixed;
+  background-size: cover;
+}
