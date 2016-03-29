@@ -2,10 +2,10 @@
 angular
   .module('museumPassport.services', [])
 
-  .factory('CreateAnswer', function($http) {
+  .factory('CreateAnswer', function(question_id, data, $http) {
     return $http({
       method: 'POST',
-      url:    'http://localhost:3000/museums/1/exhibits/1/questions/'+questionID+'/answers.json',
+      url:    'http://localhost:3000/questions/'+question_id+'/answers.json',
       data:   data,
       headers: { 'Content-Type': 'application/json'}
     })
@@ -14,8 +14,4 @@ angular
       .error(function ( data, status, header, JSON ) {
       });
     console.log(data);
-  })
-
-  .factory('UserSession', function($resource) {
-    return $resource("http://localhost:3000/users/sign_in.json");
   });

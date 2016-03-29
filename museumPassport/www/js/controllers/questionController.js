@@ -3,15 +3,8 @@ angular
   .module('museumPassport.questions', [])
   .controller('QuestionController', function($scope, $http){
 
-  var addressOne = 'http://localhost:3000/museums/';
-  var museumId = localStorage['museumId'];
-  console.log(museumId)
-  var addressTwo = '/exhibits/';
-  var exhibitId = localStorage['exhibitId'];
-  console.log(exhibitId)
-  var addressThree = '/questions';
 
-  $http.get(addressOne + museumId + addressTwo + exhibitId + addressThree).success(function(data){
+  $http.get('http://localhost:3000/exhibits/' + localStorage['exhibitId'] + '/questions').success(function(data){
     $scope.questions = data;
     $scope.status();
     console.log($scope.status())
@@ -26,23 +19,19 @@ angular
   }
 
   $scope.collectResponses = function() {
-    var collection = [];
     if($scope.status() === 'new') {
       $scope.questions.forEach(function(item) {
-        $scope.recordAnswer(item.question.id, item.question.answer);
-        collection.push(item.question.answer);
+        var data = $scope.formatJson(item.question.answer);
+        $scope.recordAnswer(item.question.id, data);
       });
     } else {
       $scope.questions.forEach(function(item) {
         $scope.updateAnswer(item.question.id, item.question.answer_id, item.question.answer);
-        collection.push(item.question.answer);
       });
     }
-    console.log(collection);
   };
 
   $scope.recordAnswer = function(questionID, answer) {
-        var data = $scope.formatJson(answer);
 
         $http({
           method: 'POST',
