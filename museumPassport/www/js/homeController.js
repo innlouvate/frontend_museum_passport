@@ -2,10 +2,6 @@ angular
   .module('museumPassport.home', [])
   .controller('HomeController', function($scope, $location, $http){
 
-    // $http.get('https://museum-passport-backend.herokuapp.com/museums/0/exhibits/0/questions').success(function(data){
-    //   $scope.questions = data;
-    // });
-
     $http.get("https://museum-passport-backend.herokuapp.com/museums").success(function(data){
       $scope.museums = data;
     });
@@ -18,7 +14,7 @@ angular
     },
 
     $scope.storeMuseumId = function(museumId){
-      window.localStorage['museum'] = museumId;
+      window.localStorage['museumId'] = museumId;
     },
 
     $scope.goToExhibits = function() {
