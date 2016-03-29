@@ -9734,3 +9734,15 @@ a.button {
 .scroll-bg, .museum, .exhibit {
   background: url("http://i.imgur.com/hCWzjaf.jpg?1") no-repeat center center fixed;
   background-size: cover; }
+
+.login-container {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  height: 100%; }
+
+.login-container > .header {
+  -webkit-flex: 3;
+  padding-top: 20px; }
+
+.login-container > .button-row img {
+  max-width: 80%; }

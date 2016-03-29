@@ -1,25 +1,29 @@
 <ion-view name="signup-view">
-  <ion-content>
-    <h1>Museum Passport</h1>
-    <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Email</span>
-        <input type="email" placeholder="Email" ng-model="data.email">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Password</span>
-        <input type="password" placeholder="Password" ng-model="data.password">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Password Confirmation</span>
-        <input type="password" placeholder="Password Confirmation" ng-model="data.password_confirmation">
-      </label>
-    </div>
-
-    <div class="padding">
-      <button class="button button-block button-calm" ng-click="signup()">Sign-up</button>
-      <a ui-sref='login'> Already have a passport? Sign in here!</a>
-    </div>
-
-  </ion-content>
+    <ion-content class="padding scroll-bg">
+        <section class="login-container">
+            <div class = "col header text-center">
+               <img src="http://i.imgur.com/DDbxGlq.png" class = "logo" />
+               <h2>Museum Passport</h2>
+            </div>
+            <div class="list">
+            <div class = "col button-row text-center">
+              <label class="item item-input item-floating-label">
+              <span class="input-label">Email</span>
+              <input type="email" placeholder="Email" ng-model="data.email">
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Password" ng-model="data.password">
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Password Confirmation</span>
+                <input type="password" placeholder="Password Confirmation" ng-model="data.password_confirmation">
+              </label>
+            </div>
+            <div class = "col text-center">
+              <button class="button button-block button-dark" ng-click="signup()">Sign-up</button>
+              Already have a passport? <strong><a ui-sref='login'> Sign in here!</a></strong>
+            </div>
+        </section>
+    </ion-content>
 </ion-view>
