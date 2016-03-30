@@ -1,20 +1,4 @@
 @charset "UTF-8";
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -9738,7 +9722,11 @@ a.button {
 h2 {
   font-family: 'Cabin Sketch', cursive; }
 
-.button-large {
+.button {
+  background-size: 80px 80px;
+  font-family: 'Annie Use Your Telescope', cursive; }
+
+.museum-buttons {
   background-image: url("http://i.imgur.com/9QI4UH4.png?1");
   background-size: 80px 80px;
   font-family: 'Annie Use Your Telescope', cursive; }
@@ -9766,17 +9754,27 @@ h3, h4 {
 .login-container > .button-row img {
   max-width: 80%; }
 
-.museum, .exhibit {
+.museum, .exhibit, .game-button, .game, .result-text, .icon {
   background-color: transparent !important;
   border: none;
   position: relative;
   text-align: center; }
 
+.jumbled-word {
+  font-size: 30px;
+  padding-top: 0px;
+  padding-bottom: 15px; }
+
+.tab-item, .icon, input[type='text'] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 .item {
   background-color: transparent !important;
   border: none;
-  padding: 5px; }
+  padding: 15px; }
 
-.museum-header, .exhibit-header, .question-header {
-  padding-top: 5%; }
-=======
+.museum-header, .exhibit-header, .question-header, .game-header {
+  padding-top: 10%;
+  padding-left: 5%; }
