@@ -9723,19 +9723,17 @@ h2 {
   font-family: 'Cabin Sketch', cursive; }
 
 .button {
-  background-size: 80px 80px;
-  font-family: 'Annie Use Your Telescope', cursive; }
-
-.museum-buttons {
-  background-image: url("http://i.imgur.com/9QI4UH4.png?1");
-  background-size: 80px 80px;
-  font-family: 'Annie Use Your Telescope', cursive; }
-
-#signup-button {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 20px;
   color: white;
   background-color: #E8963F; }
+
+.museum-buttons {
+  background-color: white;
+  color: black;
+  background-image: url("http://i.imgur.com/9QI4UH4.png?1");
+  background-size: 80px 80px;
+  font-family: 'Annie Use Your Telescope', cursive; }
 
 h3, h4 {
   font-family: 'Annie Use Your Telescope', cursive; }

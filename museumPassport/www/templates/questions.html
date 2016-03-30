@@ -1,6 +1,7 @@
 <ion-view view-title="Questions" class="Questions-page">
   <ion-content class="padding scroll-bg">
-    <section class="question-container"></section>
+    <section class="question-container">
+
     <div class="question-header">
       <h4>Answer the questions below to get stamps in your passport!</h4>
     </div>
@@ -10,10 +11,12 @@
         <textarea class="text-answer" id="response{{question.question.id}}" ng-model="question.question.answer"></textarea>
       </ion-item>
     </ion-list>
+
     <a class="tab-item" ng-click="collectResponses(); savedAlert()" ui-sref="tab.home">
           <i class="icon ion-checkmark"></i>
           Submit
     </a>
+
   </section>
   </ion-content>
 </ion-view>
