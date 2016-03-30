@@ -1,11 +1,12 @@
 (function() {
 angular
   .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http, CreateAnswer, EditAnswer){
+  .controller('QuestionController', function($scope, $http, $cordovaFile, $cordovaDevice, $ionicActionSheet, $ionicPlatform, CreateAnswer, EditAnswer, FileService, Photo){
 
 
-  $http.get('http://localhost:3000/exhibits/' + localStorage['exhibitId'] + '/questions').success(function(data){
+  $http.get('http://museum-passport-backend.herokuapp.com/exhibits/' + localStorage['exhibitId'] + '/questions').success(function(data){
     $scope.questions = data;
+    console.log($scope.status())
   });
 
   $scope.status = function() {
@@ -17,6 +18,7 @@ angular
   }
 
   $scope.collectResponses = function() {
+    console.log($scope.status())
     if($scope.status() === 'new') {
       $scope.questions.forEach(function(item) {
         var data = $scope.formatJson(item.question.answer);
@@ -41,6 +43,26 @@ angular
     var data = JSON.stringify({"answer_id": answer_id, "entry": answer, "user_id": window.localStorage['userId']});
     return data;
   };
+
+  $ionicPlatform.ready(function() {
+    $scope.images = FileService.images();
+    // $scope.$evalAsync();
+  });
+
+
+  $scope.addImage = function(i) {
+    // $scope.hideSheet();
+    Photo.takePhoto().then(function(url) {
+      console.log(url);
+      $scope.questions[i].question.image = url;
+      // $scope.$evalAsync();
+    });
+  }
+
+  $scope.urlForImage = function(imageName) {
+    var trueOrigin = cordova.file.dataDirectory + imageName;
+    return trueOrigin;
+  }
 
  //  $scope.savedAlert = function() {
  //   var alertPopup = $ionicPopup.alert({

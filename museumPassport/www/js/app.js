@@ -8,7 +8,9 @@ angular.module('museumPassport', [
   'ionic',
   // 'ionic.service.core',
   'museumPassport.questions',
-  'museumPassport.images',
+  'museumPassport.evilImages',
+  'museumPassport.photoServices',
+  'museumPassport.imageStoreServices',
   'museumPassport.files',
   'museumPassport.answers',
   'museumPassport.editAnswers',
@@ -88,8 +90,8 @@ angular.module('museumPassport', [
     url: '/photos',
     views: {
       'tab-photos': {
-        templateUrl: 'templates/photos.html'
-        // controller: 'ImageController'
+        templateUrl: 'templates/photos.html',
+        controller: 'ImageController'
       }
     }
   })

@@ -16,13 +16,13 @@ angular
       return images;
     };
 
-    function addImage(img) {
+    function storeImage(img) {
       images.push(img);
       window.localStorage.setItem(IMAGE_STORAGE_KEY, JSON.stringify(images));
     };
 
     return {
-      storeImage: addImage,
+      storeImage: storeImage,
       images: getImages
     }
   })

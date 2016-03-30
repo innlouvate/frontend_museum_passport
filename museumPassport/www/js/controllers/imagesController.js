@@ -1,7 +1,7 @@
 
 angular
-  .module('museumPassport.images', [])
-.controller('ImageController', function($scope, $cordovaDevice, $cordovaFile, $ionicPlatform, $ionicActionSheet, ImageService, FileService) {
+  .module('museumPassport.evilImages', [])
+  .controller('ImageController', function($scope, $cordovaDevice, $cordovaFile, $ionicPlatform, $ionicActionSheet, ImageService, FileService) {
 
   $ionicPlatform.ready(function() {
     $scope.images = FileService.images();

@@ -10,7 +10,7 @@ angular
     CreateAnswer.prototype.create = function(data, question_id) {
       $http({
               method: 'POST',
-              url:    'http://localhost:3000/questions/'+question_id+'/answers.json',
+              url:    'http://museum-passport-backend.herokuapp.com/questions/'+question_id+'/answers.json',
               data:   data,
               headers: { 'Content-Type': 'application/json'}
             })
