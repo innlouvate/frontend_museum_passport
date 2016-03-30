@@ -8,7 +8,7 @@ angular.module('museumPassport', [
   'ionic',
   // 'ionic.service.core',
   'museumPassport.questions',
-  'museumPassport.evilImages',
+  // 'museumPassport.evilImages',
   'museumPassport.photoServices',
   'museumPassport.imageStoreServices',
   'museumPassport.answerSaveServices',
@@ -16,7 +16,7 @@ angular.module('museumPassport', [
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',
-  'museumPassport.imageServices',
+  // 'museumPassport.imageServices',
   'museumPassport.login',
   'ngResource',
   'ngCordova',
@@ -92,7 +92,7 @@ angular.module('museumPassport', [
     views: {
       'tab-photos': {
         templateUrl: 'templates/photos.html',
-        controller: 'ImageController'
+        controller: 'QuestionController'
       }
     }
   })

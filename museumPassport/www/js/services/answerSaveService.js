@@ -3,18 +3,21 @@ angular
   .factory('Response', function(CreateAnswer, EditAnswer) {
 
     function save(question) {
+      console.log(status(question));
       if(status(question) === 'new') {
-        var data = JSON.stringify({"entry": question.question.answer, "user_id": window.localStorage['userId']});
+        var data = JSON.stringify({"entry": question.question.answer, "image": "", "user_id": window.localStorage['userId']});
+        console.log(data);
         saveNew(data, question.question.id);
       } else {
-        var data = JSON.stringify({"answer_id": question.question.answer_id, "entry": question.question.answer, "user_id": window.localStorage['userId']});
+        var data = JSON.stringify({"answer_id": question.question.answer_id, "entry": question.question.answer, "image": "", "user_id": window.localStorage['userId']});
+        console.log(data);
         saveEdit(data, question.question.answer_id);
       }
     }
 
     function saveUrl(question, url) {
       if(status(question) === 'new') {
-        var data = JSON.stringify({"image": url, "user_id": window.localStorage['userId']});
+        var data = JSON.stringify({"entry": "", "image": url, "user_id": window.localStorage['userId']});
         saveNew(data, question.question.id);
       } else {
         var data = JSON.stringify({"answer_id": question.question.answer_id, "image": url, "user_id": window.localStorage['userId']});
@@ -53,6 +56,7 @@ angular
 
 
     return {
-      save: save
+      save: save,
+      saveUrl: saveUrl
     };
   })

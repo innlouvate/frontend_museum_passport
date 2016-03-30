@@ -10,20 +10,23 @@ angular
 
   $scope.collectResponses = function() {
     $scope.questions.forEach(function(item) {
-      Response.save(item);
+      Response.saveUrl(item);
+      console.log(item);
     });
   }
 
   $ionicPlatform.ready(function() {
-    $scope.images = FileService.images();
+    $scope.images = FileService.getImages();
     // $scope.$evalAsync();
   });
 
 
-  $scope.addImage = function(i, question) {
+  $scope.addImage = function(question) {
     // $scope.hideSheet();
-    Photo.takePhoto(question.question.id).then(function(url) {
-      Response.saveUrl(question, url);
+    Photo.takePhoto(question)
+    .then(function() {
+      // url = Photo.imageName;
+      // Response.saveUrl(question, url);
       // $scope.questions[i].question.image = url;
       $scope.$evalAsync();
     });

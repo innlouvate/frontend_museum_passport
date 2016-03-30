@@ -1,8 +1,14 @@
 angular
   .module('museumPassport.photoServices', [])
-  .factory('Photo', function($cordovaCamera, FileService, $cordovaFile, $q) {
+  .factory('Photo', function($cordovaCamera, FileService, $cordovaFile, $q, Response) {
 
-    function takePhoto(question_id) {
+    // var imageName;
+    //
+    // function imageNameSet(url) {
+    //   imageName = url;
+    // }
+
+    function takePhoto(question) {
       return $q(function(resolve, reject) {
         var options = {
           quality: 50,
@@ -20,7 +26,7 @@ angular
         $cordovaCamera.getPicture(options).then(function(imageUrl) {
           var name = imageUrl.substr(imageUrl.lastIndexOf('/') + 1);
           var namePath = imageUrl.substr(0, imageUrl.lastIndexOf('/') + 1);
-          var newName = question_id + name;
+          var newName = question.question.id + name;
 
           // var sourceDirectory = sourcePath.substring(0, sourcePath.lastIndexOf('/') + 1);
           // var sourceFileName = sourcePath.substring(sourcePath.lastIndexOf('/') + 1, sourcePath.length);
@@ -28,6 +34,9 @@ angular
           $cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName)
             .then(function(info) {
               FileService.storeImage(newName);
+              // return (cordova.file.dataDirectory + newName);
+              Response.saveUrl(question, (cordova.file.dataDirectory + newName));
+              // imageNameSet(cordova.file.dataDirectory + newName);
               resolve();
             }, function(e) {
               reject();
@@ -35,12 +44,18 @@ angular
           });
 
       });
-      return (cordova.file.dataDirectory + newName);
+      // return (cordova.file.dataDirectory + newName);
     }
+
+    // function urlForImage() {
+    //   var trueOrigin = cordova.file.dataDirectory + imageName;
+    //   return trueOrigin;
+    // }
 
 
     return {
-      takePhoto: takePhoto
+      takePhoto: takePhoto,
+      // imageNa8me: imageName
     }
 
   });

@@ -2,7 +2,7 @@ angular
   .module('museumPassport.imageStoreServices', [])
   .factory('FileService', function() {
     var images;
-    var IMAGE_STORAGE_KEY = 'images';
+    var IMAGE_STORAGE_KEY = 'testimages';
 
     function getImages() {
       var img = window.localStorage.getItem(IMAGE_STORAGE_KEY);

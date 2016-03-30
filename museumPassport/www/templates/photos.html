@@ -1,12 +1,13 @@
 <ion-view view-title="Photos" class="Photos-page">
 
   <ion-content>
-    <button class="button button-energized" ng-click="addMedia()">
+    <!-- <button class="button button-energized" ng-click="addMedia()">
   	  Add image
-    </button><br><br>
+    </button><br><br> -->
 
-    <ion-scroll>
-  	  <img ng-repeat="image in images" ng-src="{{urlForImage(image)}}" height="200px"/>
+    <ion-scroll ng-repeat="image in images">
+  	  <img ng-src="{{urlForImage(image)}}" height="200px"/>
+      {{urlForImage(image)}}
     </ion-scroll>
 
   </ion-content>

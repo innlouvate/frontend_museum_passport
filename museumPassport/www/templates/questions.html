@@ -6,17 +6,18 @@
         <div class="question-title" >{{ question.question.description }}</div>
         <textarea class="text-answer" id="text-response{{question.question.id}}" ng-model="question.question.answer"></textarea>
 
-          <button class="button button-full button-energized upload-button" ng-click="addImage($index, {{question}})")>
+          <button class="button button-full button-energized upload-button" ng-click="addImage({{question}})")>
             Add image
           </button>
           {{question.question.image}}
-          <img src=”{{question.question.image}}” />
+          <img ng-src="{{question.question.image}}" height="200px"/>
 
       </ion-item>
     </ion-list>
 
-    <ion-scroll>
-  	  <img ng-repeat="image in images" ng-src="{{urlForImage(image)}}" height="200px"/>
+    <ion-scroll ng-repeat="image in images">
+  	  <img ng-src="{{urlForImage(image)}}" height="200px"/>
+      {{urlForImage(image)}}
     </ion-scroll>
 
     <a class="tab-item" ng-click="collectResponses(); savedAlert()" ui-sref="tab.home">
