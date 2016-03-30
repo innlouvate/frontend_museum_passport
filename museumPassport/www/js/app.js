@@ -7,6 +7,8 @@
 angular.module('museumPassport', [
   'ionic',
   'museumPassport.questions',
+  'museumPassport.answers',
+  'museumPassport.editAnswers',
   'museumPassport.services',
   'museumPassport.login',
   'museumPassport.home',
@@ -80,6 +82,7 @@ angular.module('museumPassport', [
 
   .state('tab.questions', {
     url: '/questions',
+    cache: false,
     views: {
       'tab-questions': {
         templateUrl: 'templates/questions.html',
