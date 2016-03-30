@@ -10,7 +10,7 @@ describe('QuestionController', function() {
       scope = $rootScope.$new();
       rootScope = $rootScope;
       httpBackend
-        .when('GET',"http://localhost:3000/museums/1/exhibits/1/questions")
+        .when('GET',"http://localhost:3000/exhibits/1/questions")
         .respond(dummyData);
 
       ctrl = function() {
@@ -39,7 +39,7 @@ describe('QuestionController', function() {
     scope.formatJson.and.returnValue('cat');
     httpBackend.flush();
     httpBackend
-      .expectPOST("http://localhost:3000/museums/1/exhibits/1/questions/1/answers.json")
+      .expectPOST("http://localhost:3000/questions/1/answers.json")
       .respond('');
     scope.collectResponses();
     httpBackend.flush();

@@ -7,6 +7,8 @@
 angular.module('museumPassport', [
   'ionic',
   'museumPassport.questions',
+  'museumPassport.answers',
+  'museumPassport.editAnswers',
   'museumPassport.services',
   'museumPassport.login',
   'museumPassport.home',
