@@ -11,6 +11,7 @@ angular.module('museumPassport', [
   'museumPassport.evilImages',
   'museumPassport.photoServices',
   'museumPassport.imageStoreServices',
+  'museumPassport.answerSaveServices',
   'museumPassport.files',
   'museumPassport.answers',
   'museumPassport.editAnswers',

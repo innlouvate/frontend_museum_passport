@@ -6,7 +6,7 @@
         <div class="question-title" >{{ question.question.description }}</div>
         <textarea class="text-answer" id="text-response{{question.question.id}}" ng-model="question.question.answer"></textarea>
 
-          <button class="button button-full button-energized upload-button" ng-click="addImage($index, {{question.question.id}})")>
+          <button class="button button-full button-energized upload-button" ng-click="addImage($index, {{question}})")>
             Add image
           </button>
           {{question.question.image}}

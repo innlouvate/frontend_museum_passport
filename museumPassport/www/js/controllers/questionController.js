@@ -1,45 +1,19 @@
 (function() {
 angular
   .module('museumPassport.questions', [])
-  .controller('QuestionController', function($scope, $http, $cordovaFile, $cordovaDevice, $ionicActionSheet, $ionicPlatform, CreateAnswer, EditAnswer, FileService, Photo){
+  .controller('QuestionController', function($scope, $http, $cordovaFile, $cordovaDevice, $ionicActionSheet, $ionicPlatform, CreateAnswer, EditAnswer, FileService, Photo, Response){
 
 
   $http.get('http://museum-passport-backend.herokuapp.com/exhibits/' + localStorage['exhibitId'] + '/questions').success(function(data){
     $scope.questions = data;
   });
 
-  $scope.status = function(question) {
-    if(question.question.answer_id) {
-      return 'edit';
-    } else {
-      return 'new'
-    }
-  }
-
   $scope.collectResponses = function() {
     $scope.questions.forEach(function(item) {
-      console.log($scope.status(item));
-      if($scope.status(item) === 'new') {
-        var data = $scope.formatJson(item.question.answer);
-        var answer = new CreateAnswer()
-        answer.create(data, item.question.id);
-      } else {
-        var data = $scope.formatUpdate(item.question.answer_id, item.question.answer);
-        var answer = new EditAnswer()
-        answer.edit(data, item.question.answer_id);
-      }
+      console.log(item)
+      Response.save(item);
     });
-  };
-
-  $scope.formatJson = function(answer) {
-    var data = JSON.stringify({"entry": answer, "user_id": window.localStorage['userId']});
-    return data;
-  };
-
-  $scope.formatUpdate = function(answer_id, answer) {
-    var data = JSON.stringify({"answer_id": answer_id, "entry": answer, "user_id": window.localStorage['userId']});
-    return data;
-  };
+  }
 
   $ionicPlatform.ready(function() {
     $scope.images = FileService.images();
@@ -47,11 +21,12 @@ angular
   });
 
 
-  $scope.addImage = function(i, question_id) {
+  $scope.addImage = function(i, question) {
     // $scope.hideSheet();
-    Photo.takePhoto(question_id).then(function(url) {
+    Photo.takePhoto(question.question.id).then(function(url) {
       console.log(url);
-      $scope.questions[i].question.image = url;
+      SaveUrl.save(url, question);
+      // $scope.questions[i].question.image = url;
       // $scope.$evalAsync();
     });
   }
