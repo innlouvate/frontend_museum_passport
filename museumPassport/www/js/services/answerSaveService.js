@@ -4,12 +4,20 @@ angular
 
     function save(question) {
       if(status(question) === 'new') {
-        var data = formatJson(question.question.answer);
-        console.log(data)
+        var data = JSON.stringify({"entry": question.question.answer, "user_id": window.localStorage['userId']});
         saveNew(data, question.question.id);
       } else {
-        var data = formatUpdate(question.question.answer_id, question.question.answer);
-        console.log(data)
+        var data = JSON.stringify({"answer_id": question.question.answer_id, "entry": question.question.answer, "user_id": window.localStorage['userId']});
+        saveEdit(data, question.question.answer_id);
+      }
+    }
+
+    function saveUrl(question, url) {
+      if(status(question) === 'new') {
+        var data = JSON.stringify({"image": url, "user_id": window.localStorage['userId']});
+        saveNew(data, question.question.id);
+      } else {
+        var data = JSON.stringify({"answer_id": question.question.answer_id, "image": url, "user_id": window.localStorage['userId']});
         saveEdit(data, question.question.answer_id);
       }
     }
@@ -33,15 +41,15 @@ angular
       answer.edit(data, answer_id);
     };
 
-    function formatJson(answer) {
-      var data = JSON.stringify({"entry": answer, "user_id": window.localStorage['userId']});
-      return data;
-    };
-
-    function formatUpdate(answer_id, answer) {
-      var data = JSON.stringify({"answer_id": answer_id, "entry": answer, "user_id": window.localStorage['userId']});
-      return data;
-    };
+    // function formatNew(answer) {
+    //   var data = JSON.stringify({"entry": answer, "user_id": window.localStorage['userId']});
+    //   return data;
+    // };
+    //
+    // function formatUpdate(answer_id, answer) {
+    //   var data = JSON.stringify({"answer_id": answer_id, "entry": answer, "user_id": window.localStorage['userId']});
+    //   return data;
+    // };
 
 
     return {

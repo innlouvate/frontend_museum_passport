@@ -10,7 +10,6 @@ angular
 
   $scope.collectResponses = function() {
     $scope.questions.forEach(function(item) {
-      console.log(item)
       Response.save(item);
     });
   }
@@ -24,10 +23,9 @@ angular
   $scope.addImage = function(i, question) {
     // $scope.hideSheet();
     Photo.takePhoto(question.question.id).then(function(url) {
-      console.log(url);
-      SaveUrl.save(url, question);
+      Response.saveUrl(question, url);
       // $scope.questions[i].question.image = url;
-      // $scope.$evalAsync();
+      $scope.$evalAsync();
     });
   }
 
