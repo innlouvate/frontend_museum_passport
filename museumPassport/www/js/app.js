@@ -6,8 +6,10 @@
 
 angular.module('museumPassport', [
   'ionic',
+  // 'ionic.service.core',
   'museumPassport.questions',
   'museumPassport.images',
+  'museumPassport.files',
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',

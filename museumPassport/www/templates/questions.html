@@ -6,9 +6,17 @@
         <div class="question-title" >{{ question.question.description }}</div>
         <textarea class="text-answer" id="text-response{{question.question.id}}" ng-model="question.question.response"></textarea>
 
-        <button class="button button-full button-energized upload-button" id="photo-response{{question.question.id}}" ng-click="addMedia()">
-          Add image
-        </button>
+        <div ng-controller="ImageController">
+          <button class="button button-full button-energized upload-button" ng-click="uploadPicture()" ng-model="question.question.image")>
+            Add image
+          </button>
+          <!-- <img src=”{{ urlForImage }}” alt=”” /> -->
+          <!-- <ion-scroll direction="x" style="height:200px; min-height: 200px; overflow: scroll; white-space: nowrap;">
+            <img ng-src="{{urlForImage(image)}}" style="height:200px; padding: 5px 5px 5px 5px;"/>
+          </ion-scroll> -->
+
+        </div>
+
       </ion-item>
     </ion-list>
 
