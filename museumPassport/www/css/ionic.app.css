@@ -9732,30 +9732,48 @@ a.button {
   transition-duration: 0s; }
 
 .logo {
-  width: 180px;
-  height: 150px; }
+  width: 160px;
+  height: 120px; }
+
+h2 {
+  font-family: 'Cabin Sketch', cursive; }
 
 .button-large {
   background-image: url("http://i.imgur.com/9QI4UH4.png?1");
   background-size: 80px 80px;
-  vertical-align: middle; }
+  font-family: 'Annie Use Your Telescope', cursive; }
+
+#signup-button {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 20px; }
+
+h3, h4 {
+  font-family: 'Annie Use Your Telescope', cursive; }
 
 .scroll-content {
   display: -webkit-flex;
   -webkit-flex-direction: column;
   background: url("http://i.imgur.com/hCWzjaf.jpg?1");
-  background-size: 100% 100%; }
+  background-size: 100% 100%;
+  font-family: 'Annie Use Your Telescope', cursive; }
 
 .login-container > .header {
   -webkit-flex: 3;
-  padding-top: 20px; }
+  margin-top: 30px; }
 
 .login-container > .button-row img {
   max-width: 80%; }
 
-.museum, .exhibit, .question, .item {
+.museum, .exhibit {
   background-color: transparent !important;
-  border: none; }
+  border: none;
+  position: relative;
+  text-align: center; }
+
+.item {
+  background-color: transparent !important;
+  border: none;
+  padding: 5px; }
 
 .museum-header, .exhibit-header, .question-header {
   padding-top: 5%; }
