@@ -1,12 +1,16 @@
 <ion-view view-title="Home" class="Home-page">
   <ion-content class="padding scroll-bg">
-    <h3>Choose your museum...</h3>
-  <ion-list>
-    <ion-item class="museum" ng-repeat="museum in museums track by $index">
-      <button id="museum-button{{museum.museum.id}}" class="button button-large" ng-click="selectMuseum(museum.museum.id)">
-        {{ museum.museum.name }}
-      </button>
-    </ion-item>
-  </ion-list>
+    <section class="museum-container">
+      <div class = "museum-header">
+        <h3>Choose your museum...</h3>
+      </div>
+      <ion-list class="museum-list">
+        <ion-item class="museum" ng-repeat="museum in museums track by $index">
+          <button id="museum-button{{museum.museum.id}}" class="button button-large" ng-click="selectMuseum(museum.museum.id)">
+          {{ museum.museum.name }}
+          </button>
+        </ion-item>
+      </ion-list>
+    </section>
   </ion-content>
 </ion-view>

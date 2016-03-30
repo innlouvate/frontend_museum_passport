@@ -9731,14 +9731,20 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.scroll-bg, .museum, .exhibit, .question {
-  background: url("http://i.imgur.com/hCWzjaf.jpg?1") no-repeat center center fixed;
-  background-size: cover; }
+.logo {
+  width: 180px;
+  height: 150px; }
 
-.login-container {
+.button-large {
+  background-image: url("http://i.imgur.com/9QI4UH4.png?1");
+  background-size: 80px 80px;
+  vertical-align: middle; }
+
+.scroll-content {
   display: -webkit-flex;
   -webkit-flex-direction: column;
-  height: 100%; }
+  background: url("http://i.imgur.com/hCWzjaf.jpg?1");
+  background-size: 100% 100%; }
 
 .login-container > .header {
   -webkit-flex: 3;
@@ -9746,3 +9752,10 @@ a.button {
 
 .login-container > .button-row img {
   max-width: 80%; }
+
+.museum, .exhibit, .question, .item {
+  background-color: transparent !important;
+  border: none; }
+
+.museum-header, .exhibit-header, .question-header {
+  padding-top: 5%; }

@@ -1,9 +1,12 @@
 <ion-view view-title="Questions" class="Questions-page">
   <ion-content class="padding scroll-bg">
-  <h4>Answer the questions below to get stamps in your passport!</h4>
+    <section class="question-container"></section>
+    <div class="question-header">
+      <h4>Answer the questions below to get stamps in your passport!</h4>
+    </div>
     <ion-list>
       <ion-item class="question" ng-repeat="question in questions track by $index">
-        <div class="question-title" >{{ question.question.description }}</div>
+        <div class="question-title item-text-wrap" >{{ question.question.description }}</div>
         <textarea class="text-answer" id="response{{question.question.id}}" ng-model="question.question.answer"></textarea>
       </ion-item>
     </ion-list>
@@ -11,5 +14,6 @@
           <i class="icon ion-checkmark"></i>
           Submit
     </a>
+  </section>
   </ion-content>
 </ion-view>
