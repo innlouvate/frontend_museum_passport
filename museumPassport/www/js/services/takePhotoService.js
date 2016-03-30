@@ -2,7 +2,7 @@ angular
   .module('museumPassport.photoServices', [])
   .factory('Photo', function($cordovaCamera, FileService, $cordovaFile, $q) {
 
-    function takePhoto() {
+    function takePhoto(question_id) {
       return $q(function(resolve, reject) {
         var options = {
           quality: 50,
@@ -20,14 +20,14 @@ angular
         $cordovaCamera.getPicture(options).then(function(imageUrl) {
           var name = imageUrl.substr(imageUrl.lastIndexOf('/') + 1);
           var namePath = imageUrl.substr(0, imageUrl.lastIndexOf('/') + 1);
-          // var newName = makeid() + name;
+          var newName = question_id + name;
 
           // var sourceDirectory = sourcePath.substring(0, sourcePath.lastIndexOf('/') + 1);
           // var sourceFileName = sourcePath.substring(sourcePath.lastIndexOf('/') + 1, sourcePath.length);
 
-          $cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, name)
+          $cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName)
             .then(function(info) {
-              FileService.storeImage(name);
+              FileService.storeImage(newName);
               resolve();
             }, function(e) {
               reject();
@@ -35,7 +35,7 @@ angular
           });
 
       });
-      return (cordova.file.dataDirectory + name);
+      return (cordova.file.dataDirectory + newName);
     }
 
 

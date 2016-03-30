@@ -6,11 +6,10 @@ angular
 
   $http.get('http://museum-passport-backend.herokuapp.com/exhibits/' + localStorage['exhibitId'] + '/questions').success(function(data){
     $scope.questions = data;
-    console.log($scope.status())
   });
 
-  $scope.status = function() {
-    if($scope.questions[0].question.answer_id) {
+  $scope.status = function(question) {
+    if(question.question.answer_id) {
       return 'edit';
     } else {
       return 'new'
@@ -18,20 +17,18 @@ angular
   }
 
   $scope.collectResponses = function() {
-    console.log($scope.status())
-    if($scope.status() === 'new') {
-      $scope.questions.forEach(function(item) {
+    $scope.questions.forEach(function(item) {
+      console.log($scope.status(item));
+      if($scope.status(item) === 'new') {
         var data = $scope.formatJson(item.question.answer);
         var answer = new CreateAnswer()
         answer.create(data, item.question.id);
-      });
-    } else {
-      $scope.questions.forEach(function(item) {
+      } else {
         var data = $scope.formatUpdate(item.question.answer_id, item.question.answer);
         var answer = new EditAnswer()
         answer.edit(data, item.question.answer_id);
-      });
-    }
+      }
+    });
   };
 
   $scope.formatJson = function(answer) {
@@ -50,9 +47,9 @@ angular
   });
 
 
-  $scope.addImage = function(i) {
+  $scope.addImage = function(i, question_id) {
     // $scope.hideSheet();
-    Photo.takePhoto().then(function(url) {
+    Photo.takePhoto(question_id).then(function(url) {
       console.log(url);
       $scope.questions[i].question.image = url;
       // $scope.$evalAsync();
