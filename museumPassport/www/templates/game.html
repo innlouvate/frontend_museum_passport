@@ -1,0 +1,24 @@
+<ion-view view-title="Game" class="game-page">
+  <ion-content>
+    Game Page
+      <ion-item class="newgame-button">
+        <button id="newgame-button" class="button button-large" ng-click="newGame()">
+          New Game
+        </button>
+      </ion-item>
+      <div ng-show="new.go">
+      <ion-item class="game">
+        <div class="jumbled-word">{{returnJumble()}}</div>
+        <textarea ng-model="responses.playerAnswer" placeholder="Your guess"></textarea>
+      </ion-item>
+      <ion-item class="result-text" ng-show="showResults.show">
+      <div>{{returnAnswer()}}</div>
+    </ion-item>
+      <a class="tab-item" ng-click="checkResults()">
+            <i class="icon ion-android-done-all"></i>
+                          Check Answers
+      </a>
+    </div>
+    </ion-item>
+  </ion-content>
+</ion-view>
