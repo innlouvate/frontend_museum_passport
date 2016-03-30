@@ -22,7 +22,7 @@ $big-bg:       'http://i.imgur.com/hCWzjaf.jpg?1';
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-.scroll-bg, .museum, .exhibit {
+.scroll-bg, .museum, .exhibit, .question {
   background: url($big-bg) no-repeat center center fixed;
   background-size: cover;
 }
