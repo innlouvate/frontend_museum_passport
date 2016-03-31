@@ -1,23 +1,135 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
-
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
 
+
+h2 {
+  font-family: 'Cabin Sketch', cursive;
+}
+
+h3, h4 {
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+
+p {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 24px;
+}
+
+textarea {
+  width: 100%;
+  -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.logo {
+  width: 160px;
+  height: 120px;
+}
+
+.button {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 20px;
+  color: white;
+  background-color: #E8963F;
+}
+
+.upload-button {
+  width: 100%;
+}
+
+.scroll-content {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  background: url('http://i.imgur.com/hCWzjaf.jpg?1');
+  background-size: 100% 100%;
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+
+.login-container > .header {
+    -webkit-flex: 3;
+    margin-top: 30px;
+}
+
+.login-container > .button-row img {
+    max-width: 80%;
+}
+
+.museum, .exhibit, .newgame-button, .game, .result-text, .icon {
+  background-color: transparent !important;
+  border: none;
+  position:relative;
+  text-align: center;
+  font-size: 20px;
+}
+
+.jumbled-word {
+  font-size: 30px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+
+.tab-item, .icon, .photo, input[type='text']
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.item {
+  background-color: transparent !important;
+  border: none;
+  padding: 15px;
+}
+
+.museum-header, .exhibit-header, .question-header, .game-header {
+  padding-top: 16%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.padding {
+  padding-bottom: 20px;
+}
+
+#trail {
+  opacity:0.4;
+  position: absolute;
+  right: -10%;
+  top:35%;
+}
+
+#stamp {
+  position: absolute;
+  left:0px;
+  top:0px;
+
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:2s;
+  -moz-animation-duration:2s;
+  animation-duration:2s;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-15px);}
+}
+
+.bounce {
+  animation-name: bounce;
+}

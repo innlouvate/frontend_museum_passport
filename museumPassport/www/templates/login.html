@@ -1,0 +1,25 @@
+<ion-view name="login-view">
+    <ion-content class="padding scroll-bg">
+        <section class="login-container">
+            <div class = "col header text-center">
+               <img src="http://i.imgur.com/MzOsB56.png" class = "logo" />
+               <h2>Museum Passport</h>
+            </div>
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                  <span class="input-label">Email</span>
+                  <input id="email" type="email" placeholder="Email" ng-model="data.email">
+                </label>
+                <label class="item item-input item-floating-label">
+                  <span class="input-label">Password</span>
+                  <input id="password" type="password" placeholder="Password" ng-model="data.password">
+                </label>
+              </div>
+            </div>
+            <div class="padding">
+              <button id="signup-button" class="button button-block" ng-click="login()">Login</button>
+              Don't have a passport yet? <strong><a ui-sref='signup'>Sign up here!</a></strong>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>

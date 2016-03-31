@@ -1,0 +1,26 @@
+<ion-view view-title="Questions" class="Questions-page">
+  <ion-content class="padding scroll-bg">
+    <section class="question-container">
+
+    <div class="question-header">
+      <h3>Answer the questions below...</h3>
+    </div>
+    <ion-list>
+      <ion-item class="question" ng-repeat="question in questions track by $index">
+        <div class="question-title item-text-wrap" >{{ question.question.description }}</div>
+        <textarea class="text-answer" id="text-response{{question.question.id}}" ng-model="question.question.answer"></textarea>
+          <button class="button button-small ion-camera upload-button" ng-click="addImage({{question}})")>
+            Take a photo
+          </button>
+          <img class="photo" ng-show="question.question.image" ng-src="{{question.question.image}}" height="200px"/>
+      </ion-item>
+    </ion-list>
+
+    <a class="tab-item" ng-click="collectResponses(); savedAlert()" ui-sref="tab.exhibits">
+          <i class="icon ion-checkmark"></i>
+          <p>Submit</p>
+    </a>
+
+  </section>
+  </ion-content>
+</ion-view>

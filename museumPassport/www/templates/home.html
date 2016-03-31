@@ -1,0 +1,17 @@
+<ion-view view-title="Home" class="Home-page">
+  <ion-content class="padding scroll-bg">
+    <section class="museum-container">
+      <div class = "museum-header">
+        <h3>Choose your museum to stamp your passport...</h3>
+      </div>
+      <ion-list class="museum-list">
+        <ion-item class="museum" ng-repeat="museum in museums track by $index">
+          <button id="museum-button{{museum.museum.id}}" class="button museum-buttons button-large" ng-click="selectMuseum(museum.museum.id)">
+          {{ museum.museum.name }}
+          </button>
+        </ion-item>
+        <img id="stamp" ng-src="http://i.imgur.com/DDbxGlq.png">
+      </ion-list>
+    </section>
+  </ion-content>
+</ion-view>
