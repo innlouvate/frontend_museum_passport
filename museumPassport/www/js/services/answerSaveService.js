@@ -4,7 +4,7 @@ angular
 
     function save(question) {
       console.log(status(question));
-      if(status(question) === 'new') {
+      if(question.question.answer_id) {
         var data = JSON.stringify({"entry": question.question.answer, "image": "", "user_id": window.localStorage['userId']});
         console.log(data);
         saveNew(data, question.question.id);
@@ -16,20 +16,12 @@ angular
     }
 
     function saveUrl(question, url) {
-      if(status(question) === 'new') {
+      if(question.question.answer_id) {
         var data = JSON.stringify({"entry": "", "image": url, "user_id": window.localStorage['userId']});
         saveNew(data, question.question.id);
       } else {
         var data = JSON.stringify({"answer_id": question.question.answer_id, "image": url, "user_id": window.localStorage['userId']});
         saveEdit(data, question.question.answer_id);
-      }
-    }
-
-    function status(question) {
-      if(question.question.answer_id) {
-        return 'edit';
-      } else {
-        return 'new'
       }
     }
 

@@ -6,22 +6,18 @@
 
 angular.module('museumPassport', [
   'ionic',
-  // 'ionic.service.core',
   'museumPassport.questions',
-  // 'museumPassport.evilImages',
   'museumPassport.photoServices',
   'museumPassport.imageStoreServices',
   'museumPassport.answerSaveServices',
-  'museumPassport.files',
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',
-  // 'museumPassport.imageServices',
   'museumPassport.login',
-  'ngResource',
-  'ngCordova',
   'museumPassport.home',
-  'museumPassport.exhibits'
+  'museumPassport.exhibits',
+  'ngResource',
+  'ngCordova'
 ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
@@ -87,16 +83,6 @@ angular.module('museumPassport', [
     }
   })
 
-  .state('tab.photos', {
-    url: '/photos',
-    views: {
-      'tab-photos': {
-        templateUrl: 'templates/photos.html',
-        controller: 'QuestionController'
-      }
-    }
-  })
-
   .state('tab.questions', {
     url: '/questions',
     cache: false,
@@ -107,16 +93,6 @@ angular.module('museumPassport', [
       }
     }
   });
-
-  // .state('tab.photos', {
-  //   url: '/photos',
-  //   views: {
-  //     'tab-photos': {
-  //       templateUrl: 'templates/photos.html'
-  //       // controller: 'ImageController'
-  //     }
-  //   }
-  // });
 
   $urlRouterProvider.otherwise('signup');
 });

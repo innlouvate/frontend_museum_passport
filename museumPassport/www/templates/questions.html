@@ -9,16 +9,10 @@
           <button class="button button-full button-energized upload-button" ng-click="addImage({{question}})")>
             Add image
           </button>
-          <div class="item-text-wrap"> {{question.question.image}} </div>
           <img ng-show="question.question.image" ng-src="{{question.question.image}}" height="200px"/>
 
       </ion-item>
     </ion-list>
-
-    <ion-scroll ng-repeat="image in images">
-  	  <img ng-src="{{urlForImage(image)}}" height="200px"/>
-      {{urlForImage(image)}}
-    </ion-scroll>
 
     <a class="tab-item" ng-click="collectResponses(); savedAlert()" ui-sref="tab.home">
           <i class="icon ion-checkmark"></i>
