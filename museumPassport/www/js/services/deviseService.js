@@ -3,8 +3,8 @@ angular
   .module('museumPassport.services', [])
 
   .factory('UserRegistration', function($resource) {
-    return $resource("http://localhost:3000/users.json");
+    return $resource("http://museum-passport-backend.herokuapp.com/users.json");
   })
   .factory('UserSession', function($resource) {
-    return $resource("http://localhost:3000/users/sign_in.json");
-});
+    return $resource("http://museum-passport-backend.herokuapp.com/users/sign_in.json");
+  });
