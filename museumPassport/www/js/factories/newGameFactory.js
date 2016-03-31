@@ -5,7 +5,7 @@ angular
   .factory('NewGameService', function ($http, $q) {
     return {
       getData: function() {
-        return $http.get('http://localhost:3000/game_words')
+        return $http.get('https://museum-passport-backend.herokuapp.com/game_words')
         .then(function(response) {
           if (typeof response.data === 'object') {
             var chosenArray = response.data[Math.floor(Math.random()*response.data.length)];
