@@ -9731,12 +9731,45 @@ h3, h4 {
   color: white;
   background-color: #E8963F; }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9;
+    /* IE9 only */ }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9;
+    /* IE9 only */ }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9;
+    /* IE9 only */ }
+  to {
+    opacity: 1; } }
+
 #stamp {
   position: relative;
   size: 200%;
   left: 0px;
   top: 0px;
-  z-index: -1; }
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s; }
 
 .scroll-content {
   display: -webkit-flex;
