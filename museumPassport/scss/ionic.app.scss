@@ -12,6 +12,10 @@ h2 {
   font-family: 'Cabin Sketch', cursive;
 }
 
+h3, h4 {
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+
 .button {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 20px;
@@ -19,16 +23,12 @@ h2 {
   background-color: #E8963F;
 }
 
-.museum-buttons {
-  background-color: white;
-  color: black;
-  background-image: url('http://i.imgur.com/9QI4UH4.png?1');
-  background-size: 80px 80px;
-  font-family: 'Annie Use Your Telescope', cursive;
-}
-
-h3, h4 {
-  font-family: 'Annie Use Your Telescope', cursive;
+#stamp {
+      position:relative;
+      size: 200%;
+      left:0px;
+      top:0px;
+      z-index:-1;
 }
 
 .scroll-content {
@@ -49,11 +49,17 @@ h3, h4 {
     max-width: 80%;
 }
 
-.museum, .exhibit, .game-button, .game, .result-text, .icon{
+.museum, .exhibit, .game-button, .game, .result-text, .icon {
   background-color: transparent !important;
   border: none;
   position:relative;
   text-align: center;
+  font-size: 20px;
+}
+
+p {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 24px;
 }
 
 .jumbled-word {

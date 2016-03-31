@@ -11,7 +11,7 @@ angular
     $scope.selectMuseum = function(museumId){
       $scope.storeMuseumId(museumId);
       $scope.goToExhibits();
-    },
+    };
 
     $scope.storeMuseumId = function(museumId){
       window.localStorage['museumId'] = museumId;

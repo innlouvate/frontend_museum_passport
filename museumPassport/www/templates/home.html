@@ -2,7 +2,7 @@
   <ion-content class="padding scroll-bg">
     <section class="museum-container">
       <div class = "museum-header">
-        <h3>Choose your museum...</h3>
+        <h3>Choose your museum to stamp your passport...</h3>
       </div>
       <ion-list class="museum-list">
         <ion-item class="museum" ng-repeat="museum in museums track by $index">
@@ -10,6 +10,7 @@
           {{ museum.museum.name }}
           </button>
         </ion-item>
+        <img id="stamp" ng-src="http://i.imgur.com/9QI4UH4.png?1">
       </ion-list>
     </section>
   </ion-content>
