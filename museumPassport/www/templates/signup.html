@@ -8,8 +8,8 @@
             <div class="list">
             <div class = "col button-row text-center">
               <label class="item item-input item-floating-label">
-              <span class="input-label">Email</span>
-              <input id="signup-email" type="email" placeholder="Email" ng-model="data.email">
+                <span class="input-label">Email</span>
+                <input id="signup-email" type="email" placeholder="Email" ng-model="data.email">
               </label>
               <label class="item item-input item-floating-label">
                 <span class="input-label">Password</span>
@@ -20,9 +20,9 @@
                 <input id="signup-password-confirm" type="password" placeholder="Password Confirmation" ng-model="data.password_confirmation">
               </label>
             </div>
-            <div class = "col text-center">
-              <button id="signup-button" class="button button-block button-positive" ng-click="signup()">Sign-up</button>
-              Already have a passport?<strong><a ui-sref='login'> Sign in here!</a></strong>
+            <div class="padding">
+              <button id="signup-button" class="button button-block" ng-click="signup()">Sign-up</button>
+              Already have a passport? <strong><a ui-sref='login'>Sign in here!</a></strong>
             </div>
         </section>
     </ion-content>

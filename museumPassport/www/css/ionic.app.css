@@ -9810,9 +9810,17 @@ textarea {
   padding-left: 10%;
   padding-right: 10%; }
 
+.padding {
+  padding-bottom: 20px; }
+
+#trail {
+  opacity: 0.4;
+  position: absolute;
+  right: -10%;
+  top: 35%; }
+
 #stamp {
-  position: relative;
-  size: 200%;
+  position: absolute;
   left: 0px;
   top: 0px;
   opacity: 0;
