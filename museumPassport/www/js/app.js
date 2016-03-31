@@ -13,12 +13,14 @@ angular.module('museumPassport', [
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',
+  'museumPassport.factories',
+  'museumPassport.game',
   'museumPassport.login',
   'museumPassport.home',
   'museumPassport.exhibits',
   'ngResource',
   'ngCordova'
-])
+  ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
 
@@ -79,6 +81,16 @@ angular.module('museumPassport', [
       'tab-exhibits': {
         templateUrl: 'templates/exhibits.html',
         controller: 'ExhibitsController'
+      }
+    }
+  })
+
+  .state('tab.game', {
+    url: '/game',
+    views: {
+      'tab-game': {
+        templateUrl: 'templates/game.html',
+        controller: 'GameController'
       }
     }
   })
