@@ -10,9 +10,11 @@ angular.module('museumPassport', [
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',
+  'museumPassport.factories',
   'museumPassport.login',
   'museumPassport.home',
   'museumPassport.exhibits',
+  'museumPassport.game',
   'ngResource'
 ])
 
@@ -76,6 +78,16 @@ angular.module('museumPassport', [
       'tab-exhibits': {
         templateUrl: 'templates/exhibits.html',
         controller: 'ExhibitsController'
+      }
+    }
+  })
+
+  .state('tab.game', {
+    url: '/game',
+    views: {
+      'tab-game': {
+        templateUrl: 'templates/game.html',
+        controller: 'GameController'
       }
     }
   })
