@@ -9,7 +9,7 @@
           <button class="button button-full button-energized upload-button" ng-click="addImage({{question}})")>
             Add image
           </button>
-          <img ng-show="question.question.image" ng-src="{{question.question.image}}" height="200px"/>
+          <img ng-show="question.question.image" ng-src="{{question.question.image}}" ng-click="showImage({{question}})" height="200px" class="image-list-thumb"/>
 
       </ion-item>
     </ion-list>
