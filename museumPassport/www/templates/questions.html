@@ -3,8 +3,14 @@
   This is the questions page...
     <ion-list>
       <ion-item class="question" ng-repeat="question in questions track by $index">
-        <div class="question-title" >{{ question.question.description }}</div>
-        <textarea class="text-answer" id="response{{question.question.id}}" ng-model="question.question.answer"></textarea>
+        <div class="question-title item-text-wrap" >{{ question.question.description }}</div>
+        <textarea class="text-answer" id="text-response{{question.question.id}}" ng-model="question.question.answer"></textarea>
+
+          <button class="button button-full button-energized upload-button" ng-click="addImage({{question}})")>
+            Add image
+          </button>
+          <img ng-show="question.question.image" ng-src="{{question.question.image}}" height="200px"/>
+
       </ion-item>
     </ion-list>
 
@@ -12,5 +18,7 @@
           <i class="icon ion-checkmark"></i>
           Submit
     </a>
+
+
   </ion-content>
 </ion-view>

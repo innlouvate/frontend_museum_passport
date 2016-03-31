@@ -7,16 +7,20 @@
 angular.module('museumPassport', [
   'ionic',
   'museumPassport.questions',
+  'museumPassport.photoServices',
+  'museumPassport.imageStoreServices',
+  'museumPassport.answerSaveServices',
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',
   'museumPassport.factories',
+  'museumPassport.game',
   'museumPassport.login',
   'museumPassport.home',
   'museumPassport.exhibits',
-  'museumPassport.game',
-  'ngResource'
-])
+  'ngResource',
+  'ngCordova'
+  ])
 
 .run(function($ionicPlatform, $rootScope, $state) {
 
@@ -36,7 +40,6 @@ angular.module('museumPassport', [
     }
   });
 })
-
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
@@ -58,7 +61,7 @@ angular.module('museumPassport', [
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html',
+    templateUrl: 'templates/tabs.html'
   })
 
   .state('tab.home', {
@@ -98,10 +101,10 @@ angular.module('museumPassport', [
     views: {
       'tab-questions': {
         templateUrl: 'templates/questions.html',
-        controller: 'QuestionController',
+        controller: 'QuestionController'
       }
     }
   });
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('signup');
 });
