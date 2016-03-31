@@ -2,11 +2,10 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
 
-.logo {
-  width: 160px;
-  height: 120px;
-}
 
 h2 {
   font-family: 'Cabin Sketch', cursive;
@@ -16,36 +15,21 @@ h3, h4 {
   font-family: 'Annie Use Your Telescope', cursive;
 }
 
+p {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 24px;
+}
+
+.logo {
+  width: 160px;
+  height: 120px;
+}
+
 .button {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 20px;
   color: white;
   background-color: #E8963F;
-}
-
-
-@-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
-
-#stamp {
-      position:relative;
-      size: 200%;
-      left:0px;
-      top:0px;
-
-      opacity:0;
-    -webkit-animation:fadeIn ease-in 1;
-    -moz-animation:fadeIn ease-in 1;
-    animation:fadeIn ease-in 1;
-
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-
-    -webkit-animation-duration:2s;
-    -moz-animation-duration:2s;
-    animation-duration:2s;
 }
 
 .scroll-content {
@@ -73,11 +57,6 @@ h3, h4 {
   font-size: 20px;
 }
 
-p {
-  font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 24px;
-}
-
 .jumbled-word {
   font-size: 30px;
   padding-top: 0px;
@@ -99,4 +78,24 @@ p {
 .museum-header, .exhibit-header, .question-header, .game-header {
   padding-top: 10%;
   padding-left: 5%;
+}
+
+#stamp {
+  position:relative;
+  size: 200%;
+  left:0px;
+  top:0px;
+
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:2s;
+  -moz-animation-duration:2s;
+  animation-duration:2s;
 }
