@@ -106,5 +106,5 @@ angular.module('museumPassport', [
     }
   });
 
-  $urlRouterProvider.otherwise('signup');
+  $urlRouterProvider.otherwise('login');
 });

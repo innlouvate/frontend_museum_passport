@@ -13,7 +13,7 @@ angular
       Response.save(item);
       console.log(item);
     });
-  }
+  };
 
   $ionicPlatform.ready(function() {
     $scope.images = FileService.getImages();
@@ -25,7 +25,7 @@ angular
     .then(function() {
       $scope.$evalAsync();
     });
-  }
+  };
 
 });
 })();

@@ -9749,6 +9749,12 @@ p {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 24px; }
 
+textarea {
+  width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+
 .logo {
   width: 160px;
   height: 120px; }
@@ -9758,6 +9764,9 @@ p {
   font-size: 20px;
   color: white;
   background-color: #E8963F; }
+
+.upload-button {
+  width: 100%; }
 
 .scroll-content {
   display: -webkit-flex;
@@ -9785,10 +9794,11 @@ p {
   padding-top: 0px;
   padding-bottom: 15px; }
 
-.tab-item, .icon, input[type='text'] {
+.tab-item, .icon, .photo, input[type='text'] {
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-bottom: 15px; }
 
 .item {
   background-color: transparent !important;
@@ -9815,3 +9825,14 @@ p {
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   animation-duration: 2s; }
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-30px); }
+  60% {
+    transform: translateY(-15px); } }
+
+.bounce {
+  animation-name: bounce; }

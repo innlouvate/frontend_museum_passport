@@ -11,14 +11,14 @@
         </ion-item>
         <div class="answer" ng-show="new.go">
           <ion-item class="game">
-            <div class="jumbled-word">{{returnJumble()}}</div>
+            <div class="jumbled-word text animated bounce">{{returnJumble()}}</div>
             <input type="text" ng-model="responses.playerAnswer" placeholder="Your guess">
           </ion-item>
           <ion-item class="result-text" ng-show="showResults.show">
             <div>{{returnAnswer()}}</div>
           </ion-item>
           <a class="tab-item" ng-click="checkResults()">
-            <i class="icon ion-android-done-all"></i>
+            <i class="icon ion-android-done"></i>
             <p>Check your answer</p>
           </a>
     </section>
