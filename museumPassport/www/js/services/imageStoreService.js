@@ -3,7 +3,7 @@ angular
   .factory('FileService', function() {
 
     var images;
-    var IMAGE_STORAGE_KEY = 'images';
+    var IMAGE_STORAGE_KEY = 'images2';
 
     function getImages() {
       var img = window.localStorage.getItem(IMAGE_STORAGE_KEY);
