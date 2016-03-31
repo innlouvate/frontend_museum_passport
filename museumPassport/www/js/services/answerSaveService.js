@@ -25,7 +25,6 @@ angular
       }
     }
 
-
     function status(question) {
       if(question.question.answer_id) {
         return 'edit';
@@ -43,17 +42,6 @@ angular
       var answer = new EditAnswer(data, answer_id)
       answer.edit(data, answer_id);
     };
-
-    // function formatNew(answer) {
-    //   var data = JSON.stringify({"entry": answer, "user_id": window.localStorage['userId']});
-    //   return data;
-    // };
-    //
-    // function formatUpdate(answer_id, answer) {
-    //   var data = JSON.stringify({"answer_id": answer_id, "entry": answer, "user_id": window.localStorage['userId']});
-    //   return data;
-    // };
-
 
     return {
       save: save,

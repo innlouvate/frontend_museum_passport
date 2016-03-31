@@ -15,26 +15,11 @@ angular
     });
   }
 
-  $ionicPlatform.ready(function() {
-    $scope.images = FileService.getImages();
-    // $scope.$evalAsync();
-  });
-
-
   $scope.addImage = function(question) {
-    // $scope.hideSheet();
     Photo.takePhoto(question)
     .then(function() {
-      // url = Photo.imageName;
-      // Response.saveUrl(question, url);
-      // $scope.questions[i].question.image = url;
       $scope.$evalAsync();
     });
-  }
-
-  $scope.urlForImage = function(imageName) {
-    var trueOrigin = cordova.file.dataDirectory + imageName;
-    return trueOrigin;
   }
 
  //  $scope.savedAlert = function() {
