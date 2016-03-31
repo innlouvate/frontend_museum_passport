@@ -27,12 +27,5 @@ angular
     });
   }
 
- //  $scope.savedAlert = function() {
- //   var alertPopup = $ionicPopup.alert({
- //     title: "Your responses have been saved",
- //    //  template: "Where to next?"
- //   });
- // };
-
 });
 })();
