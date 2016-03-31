@@ -76,6 +76,7 @@ angular.module('museumPassport', [
 
   .state('tab.exhibits', {
     url: '/exhibits',
+    cache: false,
     templateUrl: 'templates/exhibits.html',
     views: {
       'tab-exhibits': {
