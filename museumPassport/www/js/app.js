@@ -10,6 +10,7 @@ angular.module('museumPassport', [
   'museumPassport.answers',
   'museumPassport.editAnswers',
   'museumPassport.services',
+  'museumPassport.factories',
   'museumPassport.login',
   'museumPassport.home',
   'museumPassport.exhibits',

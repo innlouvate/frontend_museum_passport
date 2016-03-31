@@ -1,34 +1,31 @@
 angular
   .module('museumPassport.game', [])
-  .controller('GameController', function($scope, $location, $http){
+  .controller('GameController', function($scope, $location, $http, $q, NewGameService){
 
-    // $http.get("/gameDummy.json").success(function(data){
-    //   $scope.gameWords = data;
-    // });
+  $scope.resultText = null;
 
-    var gameWords = ["cat", "dog", "rat", "bunny", "lamb", "frog"];
-    var resultText = null;
+  var startGame = function() {
+    NewGameService.getData()
+      .then(function(chosenArray) {
+        if (chosenArray.game_word) {
+          var formattedArray = chosenArray.game_word.wordlist.split(",");
+          $scope.selectWord(formattedArray);
+          console.log(chosenArray);
+        } else {
+          return "error";
+        }
+      }, function(error) {
+        return "error";
+      });
+  };
 
-    $scope.newGame = function(){
-      $scope.resetGame();
-      $scope.selectWord();
-      $scope.jumbleWord();
-    };
 
-    $scope.resetGame = function(){
-      $scope.new.go = true;
-      $scope.showResults.show = false;
-      $scope.responses.playerAnswer = "";
-    };
-
-    $scope.new = function(){
-      $scope.go = false;
-    };
-
-    $scope.selectWord = function(){
-      var word = gameWords[Math.floor(Math.random()*gameWords.length)];
-      $scope.wordAnswer = word;
-    };
+  $scope.selectWord = function(chosenArray){
+    var word = chosenArray[Math.floor(Math.random()*chosenArray.length)];
+    $scope.wordAnswer = word;
+    console.log($scope.wordAnswer);
+    $scope.jumbleWord();
+  };
 
 //furture refactor put this in facory.xxx
 
@@ -58,11 +55,27 @@ angular
       return $scope.wordJumbled;
     };
 
+
+  $scope.createNewGame = function() {
+    $scope.resetGame();
+    startGame();
+  };
+
+  $scope.resetGame = function(){
+    $scope.new.go = true;
+    $scope.showResults.show = false;
+    $scope.responses.playerAnswer = "";
+  };
+
+  $scope.new = function(){
+    $scope.go = false;
+  };
+
     $scope.checkResults = function(){
       if($scope.responses.playerAnswer === $scope.wordAnswer) {
-        resultText = "Well Done! ";
+        $scope.resultText = "Well Done! ";
       } else {
-        resultText = "Not quite. ";
+        $scope.resultText = "Not quite. ";
       }
       $scope.showResults.show = true;
     };
@@ -78,7 +91,7 @@ angular
 
 
     $scope.returnAnswer = function(){
-      return resultText + "The answer was: " + $scope.wordAnswer;
+      return $scope.resultText + "The answer was: " + $scope.wordAnswer;
     };
 
 
