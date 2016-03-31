@@ -20,7 +20,7 @@ angular
         $cordovaCamera.getPicture(options).then(function(imageUrl) {
           var name = imageUrl.substr(imageUrl.lastIndexOf('/') + 1);
           var namePath = imageUrl.substr(0, imageUrl.lastIndexOf('/') + 1);
-          var newName = 'U' + window.localStorage['userId'] + '_Q' + question.question.id;
+          var newName = name + '_Q' + question.question.id;
 
           $cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName)
             .then(function(info) {
