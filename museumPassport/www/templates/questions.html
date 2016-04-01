@@ -1,5 +1,4 @@
 <ion-view view-title="Questions" class="Questions-page">
-<!-- <<<<<<< HEAD -->
   <ion-content class="padding scroll-bg">
     <section class="question-container">
 
@@ -19,7 +18,9 @@
           <button class="button button-small ion-camera upload-button" ng-click="addImage({{question}})")>
             Take a photo
           </button>
-          <img ng-show="question.question.image" ng-src="{{question.question.image}}" ng-click="showImage({{question}})" height="200px" class="image-list-thumb"/>
+          <div class="display-photo">
+            <img ng-show="question.question.image" ng-src="{{question.question.image}}" ng-click="showImage({{question}})" height="200px" class="image-list-thumb"/>
+          </div>
       </ion-item>
     </ion-list>
 

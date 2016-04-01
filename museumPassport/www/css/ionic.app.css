@@ -9782,6 +9782,15 @@ textarea {
 .login-container > .button-row img {
   max-width: 80%; }
 
+.display-photo {
+  width: 100%; }
+
+.image-list-thumb {
+  padding-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 .museum, .exhibit, .newgame-button, .game, .result-text, .icon {
   background-color: transparent !important;
   border: none;
