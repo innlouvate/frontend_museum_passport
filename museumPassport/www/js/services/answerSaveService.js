@@ -23,12 +23,12 @@ angular
     };
 
     function saveNew(data, question_id) {
-      var answer = new CreateAnswer()
+      var answer = new CreateAnswer();
       answer.create(data, question_id);
     };
 
     function saveEdit(data, answer_id) {
-      var answer = new EditAnswer(data, answer_id)
+      var answer = new EditAnswer();
       answer.edit(data, answer_id);
     };
 
