@@ -25,14 +25,12 @@ angular
           $cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName)
             .then(function(info) {
               FileService.storeImage(newName);
-              Response.saveUrl(question, (cordova.file.dataDirectory + newName));
-              resolve();
-            }, function(e) {
-              reject();
-            });
+              Response.saveUrl(question, (cordova.file.dataDirectory + newName))
+            resolve(cordova.file.dataDirectory + newName);
           });
       });
-    }
+    });
+  }
 
     return {
       takePhoto: takePhoto,

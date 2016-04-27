@@ -5,6 +5,12 @@
     <div class="question-header">
       <h3>Answer the questions below...</h3>
     </div>
+
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
     <ion-list>
       <ion-item class="question" ng-repeat="question in questions track by $index">
         <div class="question-title item-text-wrap" >{{ question.question.description }}</div>
@@ -12,7 +18,9 @@
           <button class="button button-small ion-camera upload-button" ng-click="addImage({{question}})")>
             Take a photo
           </button>
-          <img class="photo" ng-show="question.question.image" ng-src="{{question.question.image}}" height="200px"/>
+          <div class="display-photo">
+            <img ng-show="question.question.image" ng-src="{{question.question.image}}" ng-click="showImage({{question}})" height="200px" class="image-list-thumb"/>
+          </div>
       </ion-item>
     </ion-list>
 
